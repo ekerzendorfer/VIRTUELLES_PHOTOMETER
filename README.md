@@ -3,29 +3,25 @@
 Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichgewichte und Reaktionskinetik im Chemieunterricht.
 
 **Repository:** `VIRTUELLES_PHOTOMETER`  
-**App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Version:** `v0.2.0 – Statische Spektren und Vergleich`
+**Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
+**Aktueller Stand:** `v0.3.0 – Eichkurven und Rohdaten`
 
-## Inhalt von v0.2.0
+## Neu in Version 0.3.0
 
-- fünf kuratierte Modellsysteme:
-  - Kaliumpermanganat
-  - Kupfer(II)-sulfat / Kupfer(II)-Aquoion
-  - Tetraamminkupfer(II)
-  - Eisen(III)-thiocyanat
-  - Brillantblau FCF (E133)
-- substanzabhängige Konzentrationsbereiche
-- sichtbarer Scan von niedrigen zu hohen Wellenlängen
-- Anzeige und Markierung des Maximums im Scan
-- frei wählbare Messwellenlänge mit Anzeige von `A(λ)`
-- Speicherung und Überlagerung von bis zu drei Spektren
-- Hinweise zum Zusammenhang von Lösungsfarbe und absorbiertem Spektralbereich
-- LehrerInnenmodus mit Modellparametern
-- lokale Speicherung der aktuellen Einstellungen
+- aktivierter Hauptbereich **Eichkurve**
+- fünf editierbare Standardkonzentrationen je Stoff
+- verpflichtender Nullabgleich mit Blindprobe
+- Einzel- und Wiederholungsmessungen
+- unbekannte Probe mit eindeutiger Probenkennung
+- getrennte Rohwerte in einer Messwerttabelle
+- CSV-Export mit deutschem Semikolon-/Dezimalkomma-Format
+- keine automatische Auswertung im SchülerInnenmodus
+- LehrerInnenansicht mit Regression, R², Kontrollkonzentration und einfachem Ausreißertest
+- reproduzierbare, kleine Messstreuung innerhalb einer Sitzung
 
-## Wichtiger Modellhinweis
+## Didaktisches Grundprinzip
 
-Die Kurven sind **didaktisch parametrisierte Spektralmodelle**. Lage und Größenordnung der Hauptbanden orientieren sich an publizierten Messwerten; die dargestellten Kurven sind jedoch keine digitalisierten Originalspektren. Sie sind für Vergleich, Parameterstudien und spätere Eichkurven konsistent aufgebaut.
+Die App simuliert den Messvorgang. Die SchülerInnen übertragen die Werte in ein externes Protokoll oder exportieren die Rohdaten. Eichgerade, Regressionsgleichung, Konzentrationsbestimmung und Interpretation werden außerhalb der App durchgeführt.
 
 ## Dateien
 
@@ -36,29 +32,18 @@ VIRTUELLES_PHOTOMETER/
 ├── CHANGELOG.md
 ├── .nojekyll
 └── docs/
-    ├── REPO_EINRICHTUNG.md
     └── physikalische_chemie/
-        ├── README.md
+        ├── DATENQUELLEN.md
         ├── photometrie-spektren.md
-        └── DATENQUELLEN.md
+        └── photometrie-eichkurven.md
 ```
 
-## Veröffentlichung
+## Geplante nächste Version
 
-GitHub Pages wird aus dem Branch `main` und dem Verzeichnis `/ (root)` veröffentlicht.
+### v0.4.0 – Aufgabenmodus und externer Protokollworkflow
 
-Voraussichtliche Adresse:
-
-```text
-https://ekerzendorfer.github.io/VIRTUELLES_PHOTOMETER/
-```
-
-## Nächster Hauptschritt
-
-### v0.3.0 – Eichkurven
-
-- Standards und Blindprobe
-- Messung einzelner Eichwerte
-- unbekannte Probe
-- Rohdatenexport als CSV
-- externe Auswertung als didaktisches Grundprinzip
+- Aufgaben aus einer eingebetteten JSON-Struktur
+- geführte, teiloffene und offene Aufgaben
+- klare Trennung von Aufgaben- und LehrerInneninformationen
+- Versuchskennungen und exportierbare Messbedingungen
+- noch keine vollständige Protokoll- oder Textverarbeitung in der App
