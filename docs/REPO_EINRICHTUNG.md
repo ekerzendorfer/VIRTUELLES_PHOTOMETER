@@ -24,6 +24,7 @@ README.md
 CHANGELOG.md
 .nojekyll
 docs/REPO_EINRICHTUNG.md
+docs/physikalische_chemie/README.md
 ```
 
 Wichtig: `index.html` muss direkt im Hauptverzeichnis liegen.
@@ -108,20 +109,23 @@ v0.3.0
 
 Die ausführliche fachliche und didaktische Dokumentation bleibt im Online-Begleitkurs. Im Repository reichen zunächst Projektbeschreibung, Versionsstand, technische Hinweise, Live-Link, Kurs-Link und Changelog.
 
-Mögliche spätere Kursstruktur:
+Die begleitenden Markdown-Seiten werden im Onlinekurs unter folgendem Pfad gesammelt:
 
 ```text
-molekuellabore/
-└── virtuelles-photometer/
+docs/
+└── physikalische_chemie/
     ├── index.md
-    ├── spektren.md
-    ├── eichkurven.md
-    ├── fehlermodus.md
-    ├── gleichgewicht.md
-    └── kinetik.md
+    ├── virtuelles-photometer.md
+    ├── photometrie-spektren.md
+    ├── photometrie-eichkurven.md
+    ├── photometrie-fehlermodus.md
+    ├── photometrie-gleichgewicht.md
+    └── photometrie-kinetik.md
 ```
 
-## 9. Noch nicht für v0.1.0 erforderlich
+Die genaue Aufteilung kann mit dem Ausbau der App schrittweise wachsen.
+
+## 9. Noch nicht für v0.1.1 erforderlich
 
 - externe `solutions.json`
 - fachlich validierte Spektraldaten
@@ -136,11 +140,11 @@ molekuellabore/
 
 ## 10. Abnahmekriterien
 
-v0.1.0 gilt als abgeschlossen, wenn:
+v0.1.1 gilt als abgeschlossen, wenn:
 
 - GitHub Pages die App korrekt ausliefert,
 - keine JavaScript-Fehler auftreten,
-- der Testscan funktioniert,
+- der Testscan sichtbar von niedrigen zu hohen Wellenlängen abläuft,
 - der Moduswechsel funktioniert,
 - Einstellungen lokal gespeichert werden,
 - die Oberfläche auf Desktop und Tablet benutzbar bleibt.

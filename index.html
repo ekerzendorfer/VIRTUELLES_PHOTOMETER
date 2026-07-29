@@ -13,21 +13,21 @@
 <body>
 <main class="shell">
 <header class="card">
-<div><p class="eyebrow">Chemie mit KI · Virtuelles Labor</p><h1>SpektralLab</h1><p class="subtitle">Technisches Grundgerüst eines browserbasierten virtuellen Photometers. Version 0.1.0 prüft Oberfläche, Datenmodell, Diagramm, Sitzungsverwaltung und GitHub-Pages-Betrieb.</p></div>
-<div class="version"><span class="badge">v0.1.0</span><br>Grundgerüst · Techniktest</div>
+<div><p class="eyebrow">Chemie mit KI · Virtuelles Labor</p><h1>SpektralLab</h1><p class="subtitle">Technisches Grundgerüst eines browserbasierten virtuellen Photometers. Version 0.1.1 ergänzt einen sichtbar ablaufenden Wellenlängenscan und prüft weiterhin Oberfläche, Datenmodell, Diagramm und Sitzungsverwaltung.</p></div>
+<div class="version"><span class="badge">v0.1.1</span><br>Grundgerüst · sichtbarer Scan</div>
 </header>
 <section class="bar" aria-label="Betriebsmodus"><strong>Modus</strong><div class="seg"><button id="studentBtn" type="button" aria-pressed="true">SchülerInnen</button><button id="teacherBtn" type="button" aria-pressed="false">LehrerInnen</button></div><span id="modeHint">Kontrollwerte bleiben ausgeblendet.</span></section>
 <nav class="card" aria-label="Hauptbereiche"><button class="navbtn active">Spektrum</button><button class="navbtn" disabled title="Geplant ab v0.3">Eichkurve</button><button class="navbtn" disabled title="Geplant ab v0.6">Dynamische Messung</button><button class="navbtn" disabled title="Geplant ab v0.4">Aufgaben</button></nav>
 <section class="workspace">
 <aside class="card"><div class="panelhead"><h2>Versuchsparameter</h2></div><div class="panelbody"><form id="controls" class="formgrid">
-<label>Teststoff<select id="substance"></select><span class="note">v0.1.0 enthält nur einen technischen Testdatensatz.</span></label>
+<label>Teststoff<select id="substance"></select><span class="note">v0.1.1 enthält weiterhin nur einen technischen Testdatensatz.</span></label>
 <label>Konzentration in mol/L<input id="concentration" type="number" min="0.00001" max="0.002" step="0.00001" value="0.00020"></label>
 <label>Schichtdicke in cm<input id="path" type="number" min="0.1" max="5" step="0.1" value="1.0"></label>
 <label>Startwellenlänge in nm<input id="start" type="number" min="350" max="740" step="1" value="380"></label>
 <label>Endwellenlänge in nm<input id="end" type="number" min="390" max="800" step="1" value="750"></label>
-<div class="buttons"><button class="primary" type="submit">Testscan starten</button><button class="secondary" id="reset" type="button">Zurücksetzen</button></div>
+<div class="buttons"><button class="primary" id="scanButton" type="submit">Testscan starten</button><button class="secondary" id="reset" type="button">Zurücksetzen</button></div>
 </form><div id="error" class="error" role="alert"></div>
-<details><summary>Was prüft diese Version?</summary><div>Das Einlesen der Stoffdaten, die Parametersteuerung, die responsive Diagrammdarstellung, den Moduswechsel und die lokale Speicherung. Die Stoffdaten sind noch nicht als validierte Messdaten zu verstehen.</div></details></div></aside>
+<details><summary>Was prüft diese Version?</summary><div>Das Einlesen der Stoffdaten, die Parametersteuerung, den sichtbaren Scan von niedrigen zu hohen Wellenlängen, die responsive Diagrammdarstellung, den Moduswechsel und die lokale Speicherung. Die Stoffdaten sind noch nicht als validierte Messdaten zu verstehen.</div></details></div></aside>
 <section class="card"><div class="panelhead"><h2>Technisches Testspektrum</h2></div><div class="panelbody"><div class="chartwrap"><canvas id="canvas" role="img" aria-label="Absorptionsspektrum"></canvas></div>
 <div class="metrics"><div class="metric"><div class="mlabel">Maximum</div><div id="lambdaMax" class="mvalue">–</div></div><div class="metric"><div class="mlabel">Absorbanz am Maximum</div><div id="aMax" class="mvalue">–</div></div><div class="metric"><div class="mlabel">Messpunkte</div><div id="points" class="mvalue">–</div></div></div>
 <div class="info"><strong>Didaktischer Hinweis:</strong> In dieser ersten Version wird bewusst nur ein technischer Demonstrationsscan erzeugt. Die fachlich kuratierten Spektren folgen in Version 0.2.0.</div>
@@ -39,22 +39,404 @@
 <script id="substanceData" type="application/json">{"schemaVersion":"0.1","substances":[{"id":"permanganat_demo","name":"Kaliumpermanganat – technischer Demo-Datensatz","formula":"KMnO4","category":"solution","colorDescription":"violett","defaultConcentration":0.0002,"defaultPathLength":1,"wavelengthRange":[380,750],"model":{"type":"gaussian","peakWavelength":525,"epsilonMax":2400,"width":42}}]}</script>
 <script>
 "use strict";
-const KEY="virtuellesPhotometerState_v0_1";let mode="student",data=[],last=[];
-const $=id=>document.getElementById(id),e={form:$("controls"),sub:$("substance"),c:$("concentration"),d:$("path"),start:$("start"),end:$("end"),canvas:$("canvas"),lmax:$("lambdaMax"),amax:$("aMax"),points:$("points"),error:$("error"),reset:$("reset"),student:$("studentBtn"),teacher:$("teacherBtn"),hint:$("modeHint"),teacherInfo:$("teacherInfo"),status:$("status"),storage:$("storage")};
-function fail(m){e.error.textContent=m;e.error.style.display="block";e.status.textContent="Eingabe prüfen"}function clear(){e.error.textContent="";e.error.style.display="none"}
-function load(){try{data=JSON.parse($("substanceData").textContent).substances;if(!Array.isArray(data)||!data.length)throw Error("Keine gültigen Stoffdaten gefunden.");data.forEach(s=>{const o=document.createElement("option");o.value=s.id;o.textContent=s.name;e.sub.appendChild(o)})}catch(err){fail("Stoffdaten konnten nicht geladen werden: "+err.message)}}
-function selected(){return data.find(x=>x.id===e.sub.value)}function gauss(x,c,w){return Math.exp(-.5*Math.pow((x-c)/w,2))}
-function values(){const v={c:Number(e.c.value),d:Number(e.d.value),start:Number(e.start.value),end:Number(e.end.value)};if(!Number.isFinite(v.c)||v.c<=0)throw Error("Die Konzentration muss größer als 0 sein.");if(!Number.isFinite(v.d)||v.d<=0)throw Error("Die Schichtdicke muss größer als 0 sein.");if(!Number.isFinite(v.start)||!Number.isFinite(v.end)||v.start>=v.end)throw Error("Die Startwellenlänge muss kleiner als die Endwellenlänge sein.");if(v.end-v.start<20)throw Error("Der Scanbereich muss mindestens 20 nm umfassen.");return v}
-function spectrum(s,v){const p=[];for(let wl=v.start;wl<=v.end;wl+=2){const eps=s.model.epsilonMax*gauss(wl,s.model.peakWavelength,s.model.width);p.push({wavelength:wl,absorbance:eps*v.c*v.d})}return p}
-function size(){const r=e.canvas.getBoundingClientRect(),dpr=devicePixelRatio||1;e.canvas.width=Math.max(600,Math.round(r.width*dpr));e.canvas.height=Math.round(350*dpr);e.canvas.getContext("2d").setTransform(dpr,0,0,dpr,0,0)}
-function draw(p){size();const ctx=e.canvas.getContext("2d"),w=e.canvas.getBoundingClientRect().width,h=350,m={l:58,r:18,t:20,b:48},pw=w-m.l-m.r,ph=h-m.t-m.b;ctx.clearRect(0,0,w,h);if(!p.length){ctx.fillStyle="#5e6b79";ctx.font="15px system-ui";ctx.textAlign="center";ctx.fillText("Noch kein Testspektrum vorhanden.",w/2,h/2);return}const min=p[0].wavelength,max=p[p.length-1].wavelength,raw=Math.max(...p.map(x=>x.absorbance)),maxY=Math.max(.2,Math.ceil(raw*5)/5),xs=x=>m.l+(x-min)/(max-min)*pw,ys=y=>m.t+ph-y/maxY*ph;ctx.strokeStyle="#d6dee8";ctx.fillStyle="#5e6b79";ctx.font="12px system-ui";for(let i=0;i<=5;i++){const yv=maxY/5*i,y=ys(yv);ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(w-m.r,y);ctx.stroke();ctx.textAlign="right";ctx.fillText(yv.toFixed(1),m.l-8,y+4)}for(let i=0;i<=6;i++){const xv=min+(max-min)/6*i,x=xs(xv);ctx.beginPath();ctx.moveTo(x,m.t);ctx.lineTo(x,m.t+ph);ctx.stroke();ctx.textAlign="center";ctx.fillText(Math.round(xv),x,h-22)}ctx.strokeStyle="#172033";ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(m.l,m.t);ctx.lineTo(m.l,m.t+ph);ctx.lineTo(w-m.r,m.t+ph);ctx.stroke();ctx.fillStyle="#172033";ctx.textAlign="center";ctx.fillText("Wellenlänge / nm",m.l+pw/2,h-4);ctx.save();ctx.translate(15,m.t+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText("Absorbanz A",0,0);ctx.restore();const g=ctx.createLinearGradient(m.l,0,w-m.r,0);[[0,"#6c4ab6"],[.18,"#3255a4"],[.35,"#2d8da8"],[.52,"#3c9b5f"],[.69,"#b39c2f"],[.84,"#d06b32"],[1,"#b63d4b"]].forEach(x=>g.addColorStop(...x));ctx.strokeStyle=g;ctx.lineWidth=3;ctx.beginPath();p.forEach((q,i)=>i?ctx.lineTo(xs(q.wavelength),ys(q.absorbance)):ctx.moveTo(xs(q.wavelength),ys(q.absorbance)));ctx.stroke();const mp=p.reduce((a,b)=>b.absorbance>a.absorbance?b:a);ctx.fillStyle="#172033";ctx.beginPath();ctx.arc(xs(mp.wavelength),ys(mp.absorbance),4.5,0,Math.PI*2);ctx.fill()}
-function metrics(p){if(!p.length){e.lmax.textContent=e.amax.textContent=e.points.textContent="–";return}const m=p.reduce((a,b)=>b.absorbance>a.absorbance?b:a);e.lmax.textContent=m.wavelength+" nm";e.amax.textContent=m.absorbance.toFixed(3);e.points.textContent=String(p.length)}
-function save(){try{localStorage.setItem(KEY,JSON.stringify({mode,sub:e.sub.value,c:e.c.value,d:e.d.value,start:e.start.value,end:e.end.value}));e.storage.textContent="Sitzung lokal gespeichert."}catch{e.storage.textContent="Lokale Speicherung ist nicht verfügbar."}}
-function setMode(m){mode=m;const t=m==="teacher";e.student.setAttribute("aria-pressed",String(!t));e.teacher.setAttribute("aria-pressed",String(t));e.teacherInfo.hidden=!t;e.hint.textContent=t?"Entwicklungsinformationen sind eingeblendet.":"Kontrollwerte bleiben ausgeblendet.";save()}
-function restore(){try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(!s)return;if(data.some(x=>x.id===s.sub))e.sub.value=s.sub;if(s.c)e.c.value=s.c;if(s.d)e.d.value=s.d;if(s.start)e.start.value=s.start;if(s.end)e.end.value=s.end;setMode(s.mode==="teacher"?"teacher":"student")}catch{localStorage.removeItem(KEY)}}
-function scan(){clear();try{last=spectrum(selected(),values());draw(last);metrics(last);save();e.status.textContent="Testscan abgeschlossen"}catch(err){fail(err.message)}}
-function reset(){localStorage.removeItem(KEY);e.c.value="0.00020";e.d.value="1.0";e.start.value="380";e.end.value="750";last=[];clear();setMode("student");draw([]);metrics([]);e.status.textContent="Ausgangszustand wiederhergestellt"}
-e.form.addEventListener("submit",x=>{x.preventDefault();scan()});e.reset.addEventListener("click",reset);e.student.addEventListener("click",()=>setMode("student"));e.teacher.addEventListener("click",()=>setMode("teacher"));window.addEventListener("resize",()=>draw(last));load();restore();draw([]);
+
+const APP_VERSION = "0.1.1";
+const STORAGE_KEY = "virtuellesPhotometerState_v0_1";
+const SCAN_DURATION_MS = 2600;
+
+let mode = "student";
+let data = [];
+let lastSpectrum = [];
+let visiblePointCount = 0;
+let animationFrameId = null;
+let scanRunId = 0;
+
+const $ = (id) => document.getElementById(id);
+const e = {
+  form: $("controls"),
+  sub: $("substance"),
+  c: $("concentration"),
+  d: $("path"),
+  start: $("start"),
+  end: $("end"),
+  canvas: $("canvas"),
+  lmax: $("lambdaMax"),
+  amax: $("aMax"),
+  points: $("points"),
+  error: $("error"),
+  reset: $("reset"),
+  scanButton: $("scanButton"),
+  student: $("studentBtn"),
+  teacher: $("teacherBtn"),
+  hint: $("modeHint"),
+  teacherInfo: $("teacherInfo"),
+  status: $("status"),
+  storage: $("storage")
+};
+
+function fail(message) {
+  e.error.textContent = message;
+  e.error.style.display = "block";
+  e.status.textContent = "Eingabe prüfen";
+}
+
+function clearError() {
+  e.error.textContent = "";
+  e.error.style.display = "none";
+}
+
+function load() {
+  try {
+    data = JSON.parse($("substanceData").textContent).substances;
+    if (!Array.isArray(data) || !data.length) {
+      throw new Error("Keine gültigen Stoffdaten gefunden.");
+    }
+    data.forEach((substance) => {
+      const option = document.createElement("option");
+      option.value = substance.id;
+      option.textContent = substance.name;
+      e.sub.appendChild(option);
+    });
+  } catch (error) {
+    fail("Stoffdaten konnten nicht geladen werden: " + error.message);
+  }
+}
+
+function selected() {
+  return data.find((item) => item.id === e.sub.value);
+}
+
+function gauss(x, center, width) {
+  return Math.exp(-0.5 * Math.pow((x - center) / width, 2));
+}
+
+function values() {
+  const result = {
+    c: Number(e.c.value),
+    d: Number(e.d.value),
+    start: Number(e.start.value),
+    end: Number(e.end.value)
+  };
+
+  if (!Number.isFinite(result.c) || result.c <= 0) {
+    throw new Error("Die Konzentration muss größer als 0 sein.");
+  }
+  if (!Number.isFinite(result.d) || result.d <= 0) {
+    throw new Error("Die Schichtdicke muss größer als 0 sein.");
+  }
+  if (!Number.isFinite(result.start) || !Number.isFinite(result.end) || result.start >= result.end) {
+    throw new Error("Die Startwellenlänge muss kleiner als die Endwellenlänge sein.");
+  }
+  if (result.end - result.start < 20) {
+    throw new Error("Der Scanbereich muss mindestens 20 nm umfassen.");
+  }
+  return result;
+}
+
+function spectrum(substance, settings) {
+  const points = [];
+  for (let wavelength = settings.start; wavelength <= settings.end; wavelength += 2) {
+    const epsilon = substance.model.epsilonMax * gauss(
+      wavelength,
+      substance.model.peakWavelength,
+      substance.model.width
+    );
+    points.push({
+      wavelength,
+      absorbance: epsilon * settings.c * settings.d
+    });
+  }
+  return points;
+}
+
+function sizeCanvas() {
+  const rect = e.canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  e.canvas.width = Math.max(600, Math.round(rect.width * dpr));
+  e.canvas.height = Math.round(350 * dpr);
+  e.canvas.getContext("2d").setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function draw(fullPoints, count = fullPoints.length) {
+  sizeCanvas();
+
+  const ctx = e.canvas.getContext("2d");
+  const width = e.canvas.getBoundingClientRect().width;
+  const height = 350;
+  const margin = { left: 58, right: 18, top: 20, bottom: 48 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+
+  ctx.clearRect(0, 0, width, height);
+
+  if (!fullPoints.length) {
+    ctx.fillStyle = "#5e6b79";
+    ctx.font = "15px system-ui";
+    ctx.textAlign = "center";
+    ctx.fillText("Noch kein Testspektrum vorhanden.", width / 2, height / 2);
+    return;
+  }
+
+  const visiblePoints = fullPoints.slice(0, Math.max(1, count));
+  const minX = fullPoints[0].wavelength;
+  const maxX = fullPoints[fullPoints.length - 1].wavelength;
+  const rawMaxY = Math.max(...fullPoints.map((point) => point.absorbance));
+  const maxY = Math.max(0.2, Math.ceil(rawMaxY * 5) / 5);
+  const xScale = (x) => margin.left + ((x - minX) / (maxX - minX)) * plotWidth;
+  const yScale = (y) => margin.top + plotHeight - (y / maxY) * plotHeight;
+
+  ctx.strokeStyle = "#d6dee8";
+  ctx.lineWidth = 1;
+  ctx.fillStyle = "#5e6b79";
+  ctx.font = "12px system-ui";
+
+  for (let i = 0; i <= 5; i++) {
+    const yValue = (maxY / 5) * i;
+    const y = yScale(yValue);
+    ctx.beginPath();
+    ctx.moveTo(margin.left, y);
+    ctx.lineTo(width - margin.right, y);
+    ctx.stroke();
+    ctx.textAlign = "right";
+    ctx.fillText(yValue.toFixed(1), margin.left - 8, y + 4);
+  }
+
+  for (let i = 0; i <= 6; i++) {
+    const xValue = minX + ((maxX - minX) / 6) * i;
+    const x = xScale(xValue);
+    ctx.beginPath();
+    ctx.moveTo(x, margin.top);
+    ctx.lineTo(x, margin.top + plotHeight);
+    ctx.stroke();
+    ctx.textAlign = "center";
+    ctx.fillText(Math.round(xValue), x, height - 22);
+  }
+
+  ctx.strokeStyle = "#172033";
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(margin.left, margin.top);
+  ctx.lineTo(margin.left, margin.top + plotHeight);
+  ctx.lineTo(width - margin.right, margin.top + plotHeight);
+  ctx.stroke();
+
+  ctx.fillStyle = "#172033";
+  ctx.textAlign = "center";
+  ctx.fillText("Wellenlänge / nm", margin.left + plotWidth / 2, height - 4);
+  ctx.save();
+  ctx.translate(15, margin.top + plotHeight / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText("Absorbanz A", 0, 0);
+  ctx.restore();
+
+  const gradient = ctx.createLinearGradient(margin.left, 0, width - margin.right, 0);
+  [
+    [0, "#6c4ab6"],
+    [0.18, "#3255a4"],
+    [0.35, "#2d8da8"],
+    [0.52, "#3c9b5f"],
+    [0.69, "#b39c2f"],
+    [0.84, "#d06b32"],
+    [1, "#b63d4b"]
+  ].forEach((entry) => gradient.addColorStop(...entry));
+
+  ctx.strokeStyle = gradient;
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  visiblePoints.forEach((point, index) => {
+    const x = xScale(point.wavelength);
+    const y = yScale(point.absorbance);
+    if (index === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  const currentPoint = visiblePoints[visiblePoints.length - 1];
+  if (currentPoint && count < fullPoints.length) {
+    const currentX = xScale(currentPoint.wavelength);
+    const currentY = yScale(currentPoint.absorbance);
+
+    ctx.save();
+    ctx.setLineDash([5, 5]);
+    ctx.strokeStyle = "rgba(23,32,51,.52)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(currentX, margin.top);
+    ctx.lineTo(currentX, margin.top + plotHeight);
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.fillStyle = "#172033";
+    ctx.beginPath();
+    ctx.arc(currentX, currentY, 4.5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  if (count >= fullPoints.length) {
+    const maxPoint = fullPoints.reduce((best, point) =>
+      point.absorbance > best.absorbance ? point : best
+    );
+    ctx.fillStyle = "#172033";
+    ctx.beginPath();
+    ctx.arc(xScale(maxPoint.wavelength), yScale(maxPoint.absorbance), 4.5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function updateMetrics(points, count = points.length, finished = true) {
+  if (!points.length) {
+    e.lmax.textContent = "–";
+    e.amax.textContent = "–";
+    e.points.textContent = "–";
+    return;
+  }
+
+  e.points.textContent = `${Math.min(count, points.length)} / ${points.length}`;
+
+  if (!finished) {
+    e.lmax.textContent = "Scan läuft";
+    e.amax.textContent = "–";
+    return;
+  }
+
+  const maxPoint = points.reduce((best, point) =>
+    point.absorbance > best.absorbance ? point : best
+  );
+  e.lmax.textContent = maxPoint.wavelength + " nm";
+  e.amax.textContent = maxPoint.absorbance.toFixed(3);
+  e.points.textContent = String(points.length);
+}
+
+function save() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      version: APP_VERSION,
+      mode,
+      sub: e.sub.value,
+      c: e.c.value,
+      d: e.d.value,
+      start: e.start.value,
+      end: e.end.value
+    }));
+    e.storage.textContent = "Sitzung lokal gespeichert.";
+  } catch {
+    e.storage.textContent = "Lokale Speicherung ist nicht verfügbar.";
+  }
+}
+
+function setMode(nextMode) {
+  mode = nextMode;
+  const teacherMode = nextMode === "teacher";
+  e.student.setAttribute("aria-pressed", String(!teacherMode));
+  e.teacher.setAttribute("aria-pressed", String(teacherMode));
+  e.teacherInfo.hidden = !teacherMode;
+  e.hint.textContent = teacherMode
+    ? "Entwicklungsinformationen sind eingeblendet."
+    : "Kontrollwerte bleiben ausgeblendet.";
+  save();
+}
+
+function restore() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (!saved) return;
+    if (data.some((item) => item.id === saved.sub)) e.sub.value = saved.sub;
+    if (saved.c) e.c.value = saved.c;
+    if (saved.d) e.d.value = saved.d;
+    if (saved.start) e.start.value = saved.start;
+    if (saved.end) e.end.value = saved.end;
+    setMode(saved.mode === "teacher" ? "teacher" : "student");
+  } catch {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+}
+
+function stopAnimation() {
+  scanRunId += 1;
+  if (animationFrameId !== null) {
+    cancelAnimationFrame(animationFrameId);
+    animationFrameId = null;
+  }
+  e.scanButton.disabled = false;
+  e.scanButton.textContent = "Testscan starten";
+}
+
+function animateScan(points) {
+  stopAnimation();
+  const currentRunId = scanRunId;
+  const startedAt = performance.now();
+  visiblePointCount = 1;
+  e.scanButton.disabled = true;
+  e.scanButton.textContent = "Scan läuft …";
+  updateMetrics(points, visiblePointCount, false);
+
+  function frame(now) {
+    if (currentRunId !== scanRunId) return;
+
+    const progress = Math.min(1, (now - startedAt) / SCAN_DURATION_MS);
+    visiblePointCount = Math.max(1, Math.ceil(progress * points.length));
+    const currentPoint = points[Math.min(visiblePointCount - 1, points.length - 1)];
+
+    draw(points, visiblePointCount);
+    updateMetrics(points, visiblePointCount, progress >= 1);
+    e.status.textContent = progress < 1
+      ? `Scan läuft: ${currentPoint.wavelength} nm`
+      : "Testscan abgeschlossen";
+
+    if (progress < 1) {
+      animationFrameId = requestAnimationFrame(frame);
+    } else {
+      animationFrameId = null;
+      e.scanButton.disabled = false;
+      e.scanButton.textContent = "Testscan starten";
+      visiblePointCount = points.length;
+    }
+  }
+
+  animationFrameId = requestAnimationFrame(frame);
+}
+
+function scan() {
+  clearError();
+  try {
+    const settings = values();
+    lastSpectrum = spectrum(selected(), settings);
+    save();
+    animateScan(lastSpectrum);
+  } catch (error) {
+    stopAnimation();
+    fail(error.message);
+  }
+}
+
+function reset() {
+  stopAnimation();
+  localStorage.removeItem(STORAGE_KEY);
+  e.c.value = "0.00020";
+  e.d.value = "1.0";
+  e.start.value = "380";
+  e.end.value = "750";
+  lastSpectrum = [];
+  visiblePointCount = 0;
+  clearError();
+  setMode("student");
+  draw([]);
+  updateMetrics([]);
+  e.status.textContent = "Ausgangszustand wiederhergestellt";
+}
+
+e.form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  scan();
+});
+e.reset.addEventListener("click", reset);
+e.student.addEventListener("click", () => setMode("student"));
+e.teacher.addEventListener("click", () => setMode("teacher"));
+window.addEventListener("resize", () => draw(lastSpectrum, visiblePointCount || lastSpectrum.length));
+
+load();
+restore();
+draw([]);
 </script>
 </body>
 </html>

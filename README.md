@@ -4,9 +4,9 @@ Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichge
 
 **Repo-Name:** `VIRTUELLES_PHOTOMETER`  
 **Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Aktueller Stand:** `v0.1.0 – Grundgerüst und Techniktest`
+**Aktueller Stand:** `v0.1.1 – Grundgerüst mit sichtbarem Scan`
 
-## Ziel von Version 0.1.0
+## Ziel von Version 0.1.1
 
 Diese erste Version ist bewusst noch kein fertiges Photometer. Sie prüft die technische Basis:
 
@@ -16,6 +16,7 @@ Diese erste Version ist bewusst noch kein fertiges Photometer. Sie prüft die te
 - SchülerInnen- und LehrerInnenmodus
 - eingebettete JSON-Stoffdaten
 - zentrale Diagrammkomponente
+- sichtbar ablaufender Scan von niedrigen zu hohen Wellenlängen
 - Eingabevalidierung
 - lokale Sitzungsverwaltung
 - Zurücksetzen der App
@@ -32,7 +33,9 @@ VIRTUELLES_PHOTOMETER/
 ├── CHANGELOG.md
 ├── .nojekyll
 └── docs/
-    └── REPO_EINRICHTUNG.md
+    ├── REPO_EINRICHTUNG.md
+    └── physikalische_chemie/
+        └── README.md
 ```
 
 ## GitHub Pages

@@ -1,27 +1,25 @@
 # Changelog
 
+## [0.1.1] – 2026-07-29
+
+### Hinzugefügt
+
+- sichtbar ablaufender Scan von niedrigen zu hohen Wellenlängen
+- laufende Anzeige der aktuell gescannten Wellenlänge
+- wandernde Scanmarkierung im Diagramm
+- dynamische Anzeige der bereits erfassten Messpunkte
+- sauberes Abbrechen eines laufenden Scans bei Neustart oder Reset
+- vorbereiteter Dokumentationspfad `docs/physikalische_chemie/`
+
+
 ## [0.1.0] – 2026-07-29
 
 ### Hinzugefügt
 
 - Single-HTML-Grundgerüst
 - responsive Benutzeroberfläche
-- Hauptnavigation mit geplanten App-Bereichen
+- Hauptnavigation
 - SchülerInnen- und LehrerInnenmodus
-- eingebettetes JSON-Datenmodell
-- technischer Kaliumpermanganat-Demo-Datensatz
-- Canvas-Komponente für einen Testspektrum-Scan
-- Eingabevalidierung
-- lokale Sitzungsverwaltung über `localStorage`
-- Zurücksetzen auf den Ausgangszustand
-- GitHub-Pages- und Repository-Anleitung
-
-### Bewusst noch nicht enthalten
-
-- fachlich validierte Spektraldaten
-- mehrere Stoffe
-- Eichkurven
-- CSV-Export
-- Aufgabenmodus
-- Labor- und Fehlermodus
-- Gleichgewichts- und Kinetikmodule
+- eingebetteter technischer Demo-Datensatz
+- statische Darstellung eines Testspektrums
+- Eingabevalidierung, lokale Sitzungsverwaltung und Reset-Funktion
