@@ -2,27 +2,30 @@
 
 Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichgewichte und Reaktionskinetik im Chemieunterricht.
 
-**Repo-Name:** `VIRTUELLES_PHOTOMETER`  
-**Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Aktueller Stand:** `v0.1.1 – Grundgerüst mit sichtbarem Scan`
+**Repository:** `VIRTUELLES_PHOTOMETER`  
+**App-Titel:** `SpektralLab – Virtuelles Photometer`  
+**Version:** `v0.2.0 – Statische Spektren und Vergleich`
 
-## Ziel von Version 0.1.1
+## Inhalt von v0.2.0
 
-Diese erste Version ist bewusst noch kein fertiges Photometer. Sie prüft die technische Basis:
+- fünf kuratierte Modellsysteme:
+  - Kaliumpermanganat
+  - Kupfer(II)-sulfat / Kupfer(II)-Aquoion
+  - Tetraamminkupfer(II)
+  - Eisen(III)-thiocyanat
+  - Brillantblau FCF (E133)
+- substanzabhängige Konzentrationsbereiche
+- sichtbarer Scan von niedrigen zu hohen Wellenlängen
+- Anzeige und Markierung des Maximums im Scan
+- frei wählbare Messwellenlänge mit Anzeige von `A(λ)`
+- Speicherung und Überlagerung von bis zu drei Spektren
+- Hinweise zum Zusammenhang von Lösungsfarbe und absorbiertem Spektralbereich
+- LehrerInnenmodus mit Modellparametern
+- lokale Speicherung der aktuellen Einstellungen
 
-- Single-HTML-Betrieb
-- responsive Oberfläche
-- Hauptnavigation
-- SchülerInnen- und LehrerInnenmodus
-- eingebettete JSON-Stoffdaten
-- zentrale Diagrammkomponente
-- sichtbar ablaufender Scan von niedrigen zu hohen Wellenlängen
-- Eingabevalidierung
-- lokale Sitzungsverwaltung
-- Zurücksetzen der App
-- Betrieb über GitHub Pages
+## Wichtiger Modellhinweis
 
-Der enthaltene Kaliumpermanganat-Datensatz ist ein **technischer Demo-Datensatz** und noch kein fachlich validierter Referenzdatensatz.
+Die Kurven sind **didaktisch parametrisierte Spektralmodelle**. Lage und Größenordnung der Hauptbanden orientieren sich an publizierten Messwerten; die dargestellten Kurven sind jedoch keine digitalisierten Originalspektren. Sie sind für Vergleich, Parameterstudien und spätere Eichkurven konsistent aufgebaut.
 
 ## Dateien
 
@@ -35,32 +38,27 @@ VIRTUELLES_PHOTOMETER/
 └── docs/
     ├── REPO_EINRICHTUNG.md
     └── physikalische_chemie/
-        └── README.md
+        ├── README.md
+        ├── photometrie-spektren.md
+        └── DATENQUELLEN.md
 ```
 
-## GitHub Pages
+## Veröffentlichung
 
-Die Einrichtung ist in [`docs/REPO_EINRICHTUNG.md`](docs/REPO_EINRICHTUNG.md) beschrieben.
+GitHub Pages wird aus dem Branch `main` und dem Verzeichnis `/ (root)` veröffentlicht.
 
-Die spätere Adresse lautet voraussichtlich:
+Voraussichtliche Adresse:
 
 ```text
 https://ekerzendorfer.github.io/VIRTUELLES_PHOTOMETER/
 ```
 
-## Nächste Version: v0.2.0
+## Nächster Hauptschritt
 
-- fachlich kuratierte Stoffdaten
-- mehrere farbige Lösungen
-- Spektrumaufnahme im sichtbaren Bereich
-- Markierung von `λmax`
-- Speicherung und Überlagerung ausgewählter Spektren
-- didaktische Hinweise zu absorbierter und beobachteter Farbe
+### v0.3.0 – Eichkurven
 
-## Didaktischer Grundsatz
-
-Die App erzeugt Messdaten, ersetzt aber nicht das externe Versuchsprotokoll. Eichwerte, Auswertung, Diagramme und Interpretation bleiben Aufgabe der SchülerInnen.
-
-## Lizenz
-
-Die Lizenz sollte vor der öffentlichen Version 1.0.0 ausdrücklich festgelegt werden. Bis dahin sollte das Repository nicht ohne einen klaren Lizenzhinweis als frei nachnutzbar bezeichnet werden.
+- Standards und Blindprobe
+- Messung einzelner Eichwerte
+- unbekannte Probe
+- Rohdatenexport als CSV
+- externe Auswertung als didaktisches Grundprinzip
