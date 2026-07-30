@@ -4,33 +4,39 @@ Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichge
 
 **Repository:** `VIRTUELLES_PHOTOMETER`  
 **Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Aktueller Stand:** `v0.3.2 – langsamerer Scan und konzentrationsabhängige Probenfarbe`
+**Aktueller Stand:** `v0.4.0 – Aufgabenmodus und externer Protokollworkflow`
 
-## Neu in Version 0.3.2
+## Neu in Version 0.4.0
 
-- Spektralscan auf etwa fünf Sekunden verlangsamt
-- Farbintensität der Küvettenfüllung folgt didaktisch angenähert der Konzentration
-- Standards einer Eichreihe werden mit abgestufter Farbintensität dargestellt
-- Blindprobe bleibt nahezu farblos
-- unbekannte Probe wird innerhalb derselben visuellen Skala dargestellt
-- keine Änderung der Messwerte, Regression oder Exportlogik
-
-## Bereits enthalten seit Version 0.3.0
-
-- aktivierter Hauptbereich **Eichkurve**
-- fünf editierbare Standardkonzentrationen je Stoff
-- verpflichtender Nullabgleich mit Blindprobe
-- Einzel- und Wiederholungsmessungen
-- unbekannte Probe mit eindeutiger Probenkennung
-- getrennte Rohwerte in einer Messwerttabelle
-- CSV-Export mit deutschem Semikolon-/Dezimalkomma-Format
-- keine automatische Auswertung im SchülerInnenmodus
-- LehrerInnenansicht mit Regression, R², Kontrollkonzentration und einfachem Ausreißertest
-- reproduzierbare, kleine Messstreuung innerhalb einer Sitzung
+- aktivierter Hauptbereich **Aufgaben**
+- Aufgaben aus einer eingebetteten, erweiterbaren JSON-Struktur
+- fünf Startaufgaben für Spektren und Eichkurven
+- drei Anspruchsniveaus: geführt, teiloffen und offen
+- automatische Vorbereitung geeigneter Versuchsparameter beim Start
+- eindeutige Aufgabenkennungen
+- aktive Aufgabenanzeige in Spektren- und Eichkurvenmodus
+- Aufgabenblatt als Markdown-Export
+- kompakte Messübersicht als Markdown-Export
+- CSV-Rohdaten enthalten Aufgaben-ID und Aufgabenkennung
+- Protokoll-Checkliste ohne interne Texteingabe oder automatische Bewertung
+- getrennte LehrerInnenhinweise
 
 ## Didaktisches Grundprinzip
 
-Die App simuliert den Messvorgang. Die SchülerInnen übertragen die Werte in ein externes Protokoll oder exportieren die Rohdaten. Eichgerade, Regressionsgleichung, Konzentrationsbestimmung und Interpretation werden außerhalb der App durchgeführt.
+Die App strukturiert den Messauftrag, simuliert die Messung und stellt Rohdaten bereit. Die SchülerInnen führen außerhalb der App ein vollständiges naturwissenschaftliches Protokoll mit Fragestellung, Messbedingungen, Daten, Diagrammen, Berechnungen, Interpretation und Fehlerdiskussion.
+
+Die Checkliste in der App dokumentiert nur den Arbeitsfortschritt. Sie ersetzt kein Protokoll.
+
+## Bereits enthalten
+
+- fünf didaktisch parametrisierte Spektralmodelle
+- sichtbarer Spektralscan mit Geräteschema
+- konzentrationsabhängige Farbtiefe der Küvette
+- Spektrenvergleich
+- Eichkurvenmodus mit Blindprobe, Standards und unbekannter Probe
+- Einzel- und Wiederholungsmessungen
+- CSV-Rohdatenexport
+- LehrerInnenansicht mit Regression und Kontrollwerten
 
 ## Dateien
 
@@ -42,28 +48,17 @@ VIRTUELLES_PHOTOMETER/
 ├── .nojekyll
 └── docs/
     └── physikalische_chemie/
-        ├── DATENQUELLEN.md
         ├── photometrie-spektren.md
-        └── photometrie-eichkurven.md
+        ├── photometrie-eichkurven.md
+        ├── photometer-geraeteschema.md
+        └── photometrie-aufgabenmodus.md
 ```
 
 ## Geplante nächste Version
 
-### v0.4.0 – Aufgabenmodus und externer Protokollworkflow
+### v0.5.0 – Labor- und Fehlermodus
 
-- Aufgaben aus einer eingebetteten JSON-Struktur
-- geführte, teiloffene und offene Aufgaben
-- klare Trennung von Aufgaben- und LehrerInneninformationen
-- Versuchskennungen und exportierbare Messbedingungen
-- noch keine vollständige Protokoll- oder Textverarbeitung in der App
-
-
-## Bereits enthalten seit v0.3.1
-
-- schematisches SVG-Photometer in Spektren- und Eichkurvenmodus
-- erkennbare LED-Lichtquelle, Küvette, Detektor und Anzeige
-- Küvette wird beim Messstart in den Schacht eingesetzt
-- Lichtfarbe folgt der aktuellen Wellenlänge
-- Lichtabschwächung folgt der berechneten beziehungsweise gemessenen Absorbanz
-- Nullabgleich, Standards und unbekannte Probe werden sichtbar unterschieden
-- Unterstützung von `prefers-reduced-motion`
+- kontrollierbare Messfehler
+- Lern- und Diagnosemodus
+- zufällige und systematische Fehler
+- spätere Kopplung ausgewählter Fehlerbilder an das Geräteschema

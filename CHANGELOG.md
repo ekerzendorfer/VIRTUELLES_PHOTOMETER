@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.4.0] – 2026-07-30
+
+### Hinzugefügt
+
+- eigenständiger Aufgabenmodus
+- eingebettete, erweiterbare JSON-Aufgabenstruktur
+- fünf Startaufgaben für Spektren und Eichkurven
+- geführte, teiloffene und offene Aufgaben
+- automatische Übergabe vorbereiteter Messparameter an den jeweiligen Messmodus
+- Aufgabenkennung und aktive Aufgabenanzeige
+- Markdown-Export eines Aufgabenblatts
+- Markdown-Export einer kompakten Messübersicht ohne Auswertung
+- Protokoll-Checkliste für den externen Arbeitsprozess
+- getrennte LehrerInnenhinweise
+- Aufgaben-ID und Aufgabenkennung im CSV-Rohdatenexport
+
+### Didaktische Entscheidung
+
+- Die App enthält keine Textverarbeitung für das Protokoll.
+- Diagramme, Regressionen, Rechnungen, Interpretation und Fehlerdiskussion bleiben im SchülerInnenmodus vollständig extern.
+- Die Checkliste speichert nur den Bearbeitungsstand.
+
 ## [0.3.2] – 2026-07-30
 
 ### Geändert
