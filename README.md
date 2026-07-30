@@ -4,7 +4,7 @@ Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichge
 
 **Repository:** `VIRTUELLES_PHOTOMETER`  
 **Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Aktueller Stand:** `v0.3.0 – Eichkurven und Rohdaten`
+**Aktueller Stand:** `v0.3.1 – schematisches Photometer`
 
 ## Neu in Version 0.3.0
 
@@ -47,3 +47,14 @@ VIRTUELLES_PHOTOMETER/
 - klare Trennung von Aufgaben- und LehrerInneninformationen
 - Versuchskennungen und exportierbare Messbedingungen
 - noch keine vollständige Protokoll- oder Textverarbeitung in der App
+
+
+## Neu in v0.3.1
+
+- schematisches SVG-Photometer in Spektren- und Eichkurvenmodus
+- erkennbare LED-Lichtquelle, Küvette, Detektor und Anzeige
+- Küvette wird beim Messstart in den Schacht eingesetzt
+- Lichtfarbe folgt der aktuellen Wellenlänge
+- Lichtabschwächung folgt der berechneten beziehungsweise gemessenen Absorbanz
+- Nullabgleich, Standards und unbekannte Probe werden sichtbar unterschieden
+- Unterstützung von `prefers-reduced-motion`

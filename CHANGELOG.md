@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.3.1] – 2026-07-30
+
+### Hinzugefügt
+
+- schematisches SVG-Photometer in Spektren- und Eichkurvenmodus
+- kombinierte Messanimation: Küvette einsetzen, Licht aktivieren, Abschwächung darstellen und Messwert anzeigen
+- didaktisch angenäherte Lichtfarbe aus der Wellenlänge
+- absorbanzabhängige Abschwächung des austretenden Lichtstrahls
+- eigene Darstellungen für Blindprobe, Standards und unbekannte Probe
+- barrierearme Kurztexte und Unterstützung reduzierter Bewegung
+
+### Unverändert
+
+- fachliche Berechnungen und Rohdatenlogik von v0.3.0
+- externer Protokollworkflow
+- keine automatische SchülerInnen-Auswertung
+
 ## [0.3.0] – 2026-07-29
 
 ### Hinzugefügt
