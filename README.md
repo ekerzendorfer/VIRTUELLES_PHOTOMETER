@@ -4,28 +4,46 @@ Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichge
 
 **Repository:** `VIRTUELLES_PHOTOMETER`  
 **Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Aktueller Stand:** `v0.4.0 – Aufgabenmodus und externer Protokollworkflow`
+**Aktueller Stand:** `v0.5.0 – Labor- und Fehlermodus`
 
-## Neu in Version 0.4.0
+## Neu in v0.5.0
 
-- aktivierter Hauptbereich **Aufgaben**
-- Aufgaben aus einer eingebetteten, erweiterbaren JSON-Struktur
-- fünf Startaufgaben für Spektren und Eichkurven
-- drei Anspruchsniveaus: geführt, teiloffen und offen
-- automatische Vorbereitung geeigneter Versuchsparameter beim Start
-- eindeutige Aufgabenkennungen
-- aktive Aufgabenanzeige in Spektren- und Eichkurvenmodus
-- Aufgabenblatt als Markdown-Export
-- kompakte Messübersicht als Markdown-Export
-- CSV-Rohdaten enthalten Aufgaben-ID und Aufgabenkennung
-- Protokoll-Checkliste ohne interne Texteingabe oder automatische Bewertung
-- getrennte LehrerInnenhinweise
+- realistischere natürliche Messstreuung im Normalbetrieb
+- optionaler Lernmodus mit sofort sichtbarer Fehlerursache
+- optionaler Diagnosemodus mit zunächst verborgener Ursache
+- zufällige Laborstörungen mit einstellbarer Häufigkeit
+- reproduzierbare Störungen innerhalb einer Messreihe
+- einmalige gezielte Fehlerwahl im LehrerInnenmodus
+- Fehlerarten:
+  - ungeeignete Blindprobe
+  - verschmutzte Küvette
+  - Luftblase oder unvollständige Füllung
+  - Pipettier- beziehungsweise Verdünnungsfehler
+  - Wellenlängenabweichung
+  - Nullpunktdrift
+  - Streulicht bei hoher Absorbanz
+- neue Diagnoseaufgabe `FE-KM-01`
+- Laborhinweis in Rohwerttabelle, CSV-Export und Messübersicht
+
+Die visuellen Fehlerbilder am schematischen Gerät sind bewusst noch nicht Bestandteil dieser Version. Sie können später gezielt ergänzt werden.
+
+## Drei Betriebsarten
+
+### Normalbetrieb
+
+Die Werte enthalten eine moderate natürliche Streuung, aber keine zusätzlichen systematischen Störungen.
+
+### Lernmodus
+
+Zufällige Laborprobleme können auftreten und werden nach der Messung sofort benannt.
+
+### Diagnosemodus
+
+Laborprobleme wirken auf die Messwerte, ihre Ursache bleibt jedoch zunächst verborgen. Erst nach eigener Prüfung kann die letzte Messung aufgelöst werden.
 
 ## Didaktisches Grundprinzip
 
-Die App strukturiert den Messauftrag, simuliert die Messung und stellt Rohdaten bereit. Die SchülerInnen führen außerhalb der App ein vollständiges naturwissenschaftliches Protokoll mit Fragestellung, Messbedingungen, Daten, Diagrammen, Berechnungen, Interpretation und Fehlerdiskussion.
-
-Die Checkliste in der App dokumentiert nur den Arbeitsfortschritt. Sie ersetzt kein Protokoll.
+Die App simuliert die Messung und stellt Rohdaten bereit. Die SchülerInnen führen außerhalb der App ein vollständiges naturwissenschaftliches Protokoll mit Fragestellung, Messbedingungen, Daten, Diagrammen, Berechnungen, Interpretation und Fehlerdiskussion.
 
 ## Bereits enthalten
 
@@ -35,8 +53,9 @@ Die Checkliste in der App dokumentiert nur den Arbeitsfortschritt. Sie ersetzt k
 - Spektrenvergleich
 - Eichkurvenmodus mit Blindprobe, Standards und unbekannter Probe
 - Einzel- und Wiederholungsmessungen
-- CSV-Rohdatenexport
-- LehrerInnenansicht mit Regression und Kontrollwerten
+- Aufgabenmodus mit mehreren Anspruchsniveaus
+- Markdown- und CSV-Rohdatenexport
+- LehrerInnenansicht mit Regression, Kontrollwerten und internem Fehlerprotokoll
 
 ## Dateien
 
@@ -48,17 +67,16 @@ VIRTUELLES_PHOTOMETER/
 ├── .nojekyll
 └── docs/
     └── physikalische_chemie/
-        ├── photometrie-spektren.md
-        ├── photometrie-eichkurven.md
-        ├── photometer-geraeteschema.md
-        └── photometrie-aufgabenmodus.md
+        ├── photometrie-aufgabenmodus.md
+        └── photometrie-fehlermodus.md
 ```
 
-## Geplante nächste Version
+## Geplanter nächster Hauptschritt
 
-### v0.5.0 – Labor- und Fehlermodus
+### v0.6.0 – pH-abhängige Spektren und Gleichgewicht
 
-- kontrollierbare Messfehler
-- Lern- und Diagnosemodus
-- zufällige und systematische Fehler
-- spätere Kopplung ausgewählter Fehlerbilder an das Geräteschema
+- Bromthymolblau bei ausgewählten pH-Werten
+- Überlagerung der Spektren
+- freie pH-Einstellung
+- Modellierung der sauren und basischen Form
+- Vorbereitung einer unbekannten pH-Probe
