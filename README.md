@@ -4,9 +4,18 @@ Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichge
 
 **Repository:** `VIRTUELLES_PHOTOMETER`  
 **Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Aktueller Stand:** `v0.3.1 – schematisches Photometer`
+**Aktueller Stand:** `v0.3.2 – langsamerer Scan und konzentrationsabhängige Probenfarbe`
 
-## Neu in Version 0.3.0
+## Neu in Version 0.3.2
+
+- Spektralscan auf etwa fünf Sekunden verlangsamt
+- Farbintensität der Küvettenfüllung folgt didaktisch angenähert der Konzentration
+- Standards einer Eichreihe werden mit abgestufter Farbintensität dargestellt
+- Blindprobe bleibt nahezu farblos
+- unbekannte Probe wird innerhalb derselben visuellen Skala dargestellt
+- keine Änderung der Messwerte, Regression oder Exportlogik
+
+## Bereits enthalten seit Version 0.3.0
 
 - aktivierter Hauptbereich **Eichkurve**
 - fünf editierbare Standardkonzentrationen je Stoff
@@ -49,7 +58,7 @@ VIRTUELLES_PHOTOMETER/
 - noch keine vollständige Protokoll- oder Textverarbeitung in der App
 
 
-## Neu in v0.3.1
+## Bereits enthalten seit v0.3.1
 
 - schematisches SVG-Photometer in Spektren- und Eichkurvenmodus
 - erkennbare LED-Lichtquelle, Küvette, Detektor und Anzeige
