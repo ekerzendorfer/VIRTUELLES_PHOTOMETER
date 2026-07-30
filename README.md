@@ -1,82 +1,39 @@
 # SpektralLab – Virtuelles Photometer
 
-Browserbasierte Single-HTML-App für Photometrie, Spektren, Eichkurven, Gleichgewichte und Reaktionskinetik im Chemieunterricht.
+Browserbasierte Single-HTML-App für Spektren, Eichkurven, Messfehler, Säure-Base-Gleichgewichte und später Reaktionskinetik im Chemieunterricht.
 
 **Repository:** `VIRTUELLES_PHOTOMETER`  
-**Sichtbarer App-Titel:** `SpektralLab – Virtuelles Photometer`  
-**Aktueller Stand:** `v0.5.0 – Labor- und Fehlermodus`
+**Sichtbarer Titel:** **SpektralLab – Virtuelles Photometer**  
+**Aktueller Stand:** `v0.6.0`
 
-## Neu in v0.5.0
+## Neu in v0.6.0
 
-- realistischere natürliche Messstreuung im Normalbetrieb
-- optionaler Lernmodus mit sofort sichtbarer Fehlerursache
-- optionaler Diagnosemodus mit zunächst verborgener Ursache
-- zufällige Laborstörungen mit einstellbarer Häufigkeit
-- reproduzierbare Störungen innerhalb einer Messreihe
-- einmalige gezielte Fehlerwahl im LehrerInnenmodus
-- Fehlerarten:
-  - ungeeignete Blindprobe
-  - verschmutzte Küvette
-  - Luftblase oder unvollständige Füllung
-  - Pipettier- beziehungsweise Verdünnungsfehler
-  - Wellenlängenabweichung
-  - Nullpunktdrift
-  - Streulicht bei hoher Absorbanz
-- neue Diagnoseaufgabe `FE-KM-01`
-- Laborhinweis in Rohwerttabelle, CSV-Export und Messübersicht
+- aktiver Bereich **Dynamische Messung**
+- Bromthymolblau als pH-abhängiges Zwei-Spezies-Modell
+- Schnellauswahl pH 4, 7 und 10
+- freie pH-Wahl zwischen 3 und 11
+- animierte Aufnahme einzelner Spektren
+- automatische Einführungsserie pH 4 / 7 / 10
+- Überlagerung von bis zu sechs pH-Spektren
+- Anzeige der modellierten Anteile von HIn und In⁻
+- Messwerte bei 433 und 616 nm
+- Markierung eines isosbestischen Bereichs
+- CSV-Export der gespeicherten Spektren
+- zwei neue Aufgaben zum Säure-Base-Gleichgewicht
 
-Die visuellen Fehlerbilder am schematischen Gerät sind bewusst noch nicht Bestandteil dieser Version. Sie können später gezielt ergänzt werden.
+## Modellhinweis
 
-## Drei Betriebsarten
+Das Bromthymolblau-Modul verwendet ein transparentes, didaktisch parametrisiertes Zwei-Spezies-Modell. Es ist kein digitalisiertes Originalspektrum. Als apparenter Modellwert wird `pKa = 7,1` verwendet. Literaturwerte hängen unter anderem von Ionenstärke und Messbedingungen ab.
 
-### Normalbetrieb
+## Bestehende Bereiche
 
-Die Werte enthalten eine moderate natürliche Streuung, aber keine zusätzlichen systematischen Störungen.
+- Spektrenaufnahme mit schematischem Photometer
+- Eichkurven, Blindprobe und unbekannte Probe
+- realistische Messstreuung
+- Lern- und Diagnosemodus für Laborfehler
+- JSON-basierte Messaufgaben
+- externe Protokollführung und Rohdatenexport
 
-### Lernmodus
+## Nächster Hauptschritt
 
-Zufällige Laborprobleme können auftreten und werden nach der Messung sofort benannt.
-
-### Diagnosemodus
-
-Laborprobleme wirken auf die Messwerte, ihre Ursache bleibt jedoch zunächst verborgen. Erst nach eigener Prüfung kann die letzte Messung aufgelöst werden.
-
-## Didaktisches Grundprinzip
-
-Die App simuliert die Messung und stellt Rohdaten bereit. Die SchülerInnen führen außerhalb der App ein vollständiges naturwissenschaftliches Protokoll mit Fragestellung, Messbedingungen, Daten, Diagrammen, Berechnungen, Interpretation und Fehlerdiskussion.
-
-## Bereits enthalten
-
-- fünf didaktisch parametrisierte Spektralmodelle
-- sichtbarer Spektralscan mit Geräteschema
-- konzentrationsabhängige Farbtiefe der Küvette
-- Spektrenvergleich
-- Eichkurvenmodus mit Blindprobe, Standards und unbekannter Probe
-- Einzel- und Wiederholungsmessungen
-- Aufgabenmodus mit mehreren Anspruchsniveaus
-- Markdown- und CSV-Rohdatenexport
-- LehrerInnenansicht mit Regression, Kontrollwerten und internem Fehlerprotokoll
-
-## Dateien
-
-```text
-VIRTUELLES_PHOTOMETER/
-├── index.html
-├── README.md
-├── CHANGELOG.md
-├── .nojekyll
-└── docs/
-    └── physikalische_chemie/
-        ├── photometrie-aufgabenmodus.md
-        └── photometrie-fehlermodus.md
-```
-
-## Geplanter nächster Hauptschritt
-
-### v0.6.0 – pH-abhängige Spektren und Gleichgewicht
-
-- Bromthymolblau bei ausgewählten pH-Werten
-- Überlagerung der Spektren
-- freie pH-Einstellung
-- Modellierung der sauren und basischen Form
-- Vorbereitung einer unbekannten pH-Probe
+`v0.7.0` – photometrische Kinetik am Beispiel der Entfärbung von Kristallviolett mit Hydroxid.
