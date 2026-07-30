@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.7.0] – 2026-07-30
+
+### Hinzugefügt
+
+- Kinetik-Untermodus innerhalb der dynamischen Messungen
+- Entfärbung von Kristallviolett mit Hydroxid
+- pseudo-erste Ordnung bei Hydroxidüberschuss
+- variable Anfangskonzentrationen, Messdauer und Messintervall
+- animierte Absorbanz-Zeit-Kurve
+- Rohwerttabelle und CSV-Export
+- Speicherung und Vergleich von bis zu drei Messreihen
+- LehrerInnen-Kontrollwerte für k_obs, Halbwertszeit und ln(A−A∞)-Fit
+- Aufgaben KI-CV-01 und KI-CV-02
+
+### Didaktische Entscheidung
+
+- Im SchülerInnenmodus werden weder die geeignete Linearisierung noch k_obs automatisch ausgegeben.
+- Das schematische Photometer bleibt in den fortgeschrittenen dynamischen Messungen ausgeblendet.
+
 ## [0.6.0] – 2026-07-30
 
 ### Hinzugefügt

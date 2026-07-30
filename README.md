@@ -4,7 +4,7 @@ Browserbasierte Single-HTML-App für Spektren, Eichkurven, Messfehler, Säure-Ba
 
 **Repository:** `VIRTUELLES_PHOTOMETER`  
 **Sichtbarer Titel:** **SpektralLab – Virtuelles Photometer**  
-**Aktueller Stand:** `v0.6.0`
+**Aktueller Stand:** `v0.7.0 – photometrische Kinetik mit Kristallviolett`
 
 ## Neu in v0.6.0
 
