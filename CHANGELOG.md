@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.2] – 2026-07-30
+
+### Geändert
+
+- Spektralscan von etwa 3,2 auf etwa 5 Sekunden verlangsamt
+- Farbintensität der Küvettenfüllung wird didaktisch an die Konzentration gekoppelt
+- Standardlösungen erscheinen mit abgestufter Farbintensität
+- Blindprobe bleibt nahezu farblos
+- unbekannte Probe verwendet dieselbe Konzentrationsskala wie die Standards
+
+### Unverändert
+
+- Absorbanzberechnung und Messstreuung
+- Eichkurven- und Rohdatenlogik
+- CSV-Export und LehrerInnenauswertung
+
 ## [0.3.1] – 2026-07-30
 
 ### Hinzugefügt
