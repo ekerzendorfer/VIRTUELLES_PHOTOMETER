@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.9.2] – 2026-07-31
+
+### Korrigiert
+
+- Die Module Brillantblau und Iod-/Vitamin-C-Uhr liegen wieder korrekt innerhalb des Kinetikbereichs und werden im Bromthymolblau-Modus zuverlässig ausgeblendet.
+- Beim Öffnen der Uhrreaktion aus einem anderen Kinetikversuch werden nicht gespeicherte Reste einer früheren Uhrmessung entfernt.
+- Die Schaltfläche „Zurücksetzen“ im Uhrreaktions-Modul führt jetzt einen vollständigen Reset aus: aktuelle Messung, Diagramm, Tabelle, gespeicherte Vergleichsläufe, LehrerInnen-Datenbasis und Parameter werden zurückgesetzt.
+- Eine allgemeine CSS-Regel stellt sicher, dass alle Elemente mit `hidden` unabhängig von anderen Layoutregeln unsichtbar bleiben.
+
 ## [0.9.1] – 2026-07-31
 
 ### Hinzugefügt

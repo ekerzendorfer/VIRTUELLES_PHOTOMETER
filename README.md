@@ -2,7 +2,7 @@
 
 Browserbasierte Single-HTML-App für Spektren, Eichkurven, chemische Gleichgewichte und Reaktionskinetik im Chemieunterricht.
 
-**Version:** v0.9.1  
+**Version:** v0.9.2  
 **Status:** technischer und ergonomischer Feinschliff vor der intensiven Abnahmephase
 
 ## Funktionsumfang
@@ -17,7 +17,12 @@ Browserbasierte Single-HTML-App für Spektren, Eichkurven, chemische Gleichgewic
 - Brillantblau-Hypochlorit-Kinetik
 - Iod-/Vitamin-C-Uhrreaktion
 
-## Neu in v0.9.1
+## Korrekturen in v0.9.2
+
+- Die Kinetikbereiche sind nun korrekt innerhalb des Kinetik-Panels verschachtelt; die Uhrreaktion kann nicht mehr unter Bromthymolblau erscheinen.
+- Beim Wechsel von einem anderen Kinetikversuch zur Uhrreaktion wird eine nicht gespeicherte alte Messung verworfen.
+- „Zurücksetzen“ löscht im Uhrreaktions-Modul jetzt Messung, Diagramm, Vergleichsläufe und stellt die Standardparameter wieder her.
+
 
 - gespeicherte Läufe aller drei Kinetikversuche können im LehrerInnenmodus nachträglich als Datenbasis ausgewählt werden
 - Rückkehr zur aktuellen Messung über eine eigene Schaltfläche
