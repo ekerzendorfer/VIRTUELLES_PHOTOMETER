@@ -102,3 +102,37 @@ Die App exportiert ausschließlich die Rohwerte. Extern werden A gegen t, ln(A�
 ## Modellgrenzen
 
 Das Kinetikmodell ist didaktisch parametrisiert. Reale Reaktionsgeschwindigkeiten hängen unter anderem von Zusammensetzung und Alter der Bleichlösung, pH-Wert, Temperatur und Farbstoffformulierung ab.
+
+
+# Kinetik III: Iod-/Vitamin-C-Uhrreaktion
+
+## Didaktische Idee
+
+Die Uhrreaktion ergänzt die beiden kontinuierlichen Entfärbungsreaktionen um ein grundsätzlich anderes Zeitverhalten: Zunächst bleibt die Absorbanz nahezu konstant. Gebildetes Iod wird durch Ascorbinsäure sofort wieder reduziert. Erst nach Verbrauch der Vitamin-C-Reserve kann Iod beziehungsweise Triiodid akkumulieren und mit Stärke eine intensive blaue Färbung erzeugen.
+
+Die App verfolgt die Iod-Stärke-Färbung bei 600 nm. Wegen der breiten und von den Bedingungen abhängigen sichtbaren Absorption ist dies eine didaktische Messwellenlänge, kein Anspruch auf einen universellen exakten Literaturwert.
+
+## Modell
+
+Die Iodbildungsrate wird vereinfacht proportional zu
+
+```text
+[H2O2] · [I-]
+```
+
+modelliert. Die Induktionszeit steigt proportional mit der Vitamin-C-Konzentration. Nach dem berechneten Umschlag steigt die Absorbanz rasch auf einen Plateauwert. Das Modell bildet das beobachtbare Schwellenverhalten ab, nicht den vollständigen elementaren Mechanismus.
+
+## Auswertung
+
+Die erste Überschreitung von `A = 0,200` definiert die Umschlagszeit. Für Vergleichsreihen kann `1/t` als einfacher Geschwindigkeitsersatzwert verwendet werden. Dies ist keine momentane Reaktionsgeschwindigkeit.
+
+## Aufgaben
+
+- `KI-UHR-01`: Umschlagszeit bestimmen und Induktionsphase deuten
+- `KI-UHR-02`: Konzentrationseinfluss mit mehreren Läufen untersuchen
+
+## Quellen und fachliche Orientierung
+
+- Burgess, A. E.: *Kinetics of the Rapid Reaction between Iodine and Ascorbic Acid in Aqueous Solution Using UV–Visible Absorbance and Titration by an Iodine Clock*, Journal of Chemical Education, 2014.
+- Wright, S. W.: *A Student Laboratory Experiment Based on the Vitamin C Clock Reaction*, Journal of Chemical Education.
+- Chemistry LibreTexts: Unterrichtsversuche zur Iod-Uhr und zur Anfangsgeschwindigkeitsmethode.

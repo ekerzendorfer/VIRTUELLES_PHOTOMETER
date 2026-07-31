@@ -69,3 +69,10 @@ Die beiden Banden lassen zwischen ihnen einen vergleichsweise gut durchlässigen
   https://pubmed.ncbi.nlm.nih.gov/15553166/
 
 Die in der App verwendeten Geschwindigkeitskonstanten sind didaktisch parametrisierte Modellwerte und keine Übernahme eines konkreten Versuchsprotokolls.
+
+
+## Iod-/Vitamin-C-Uhrreaktion
+
+Die Modellierung orientiert sich an Unterrichtsarbeiten zur Vitamin-C-Uhrreaktion. Gebildetes Iod wird zunächst durch Ascorbinsäure verbraucht; nach deren Erschöpfung entsteht eine intensive Iod-Stärke-Färbung. Sichtbare Messungen des Iod-Stärke-Komplexes werden je nach Stärketyp und Bedingungen ungefähr im Bereich 550–620 nm beschrieben. Für die App wurde 600 nm als didaktische Messwellenlänge gewählt.
+
+Die Modellparameter für Induktionszeit und Absorbanzanstieg sind didaktisch parametrisiert und bilden kein konkretes Literaturprotokoll exakt nach.

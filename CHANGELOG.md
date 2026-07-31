@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.9.0] – 2026-07-31
+
+### Hinzugefügt
+
+- dritter Kinetikversuch: Iod-/Vitamin-C-Uhrreaktion
+- variable Anfangskonzentrationen von H₂O₂, I⁻ und Vitamin C
+- photometrischer Verlauf bei 600 nm mit Induktionsphase und raschem Farbumschlag
+- definierte Auswerteschwelle A = 0,200
+- Umschlagszeit und Geschwindigkeitsersatzwert 1/t
+- Speicherung, Vergleich und CSV-Export von bis zu drei Messreihen
+- LehrerInnenkontrolle mit Modell- und Schwellenzeit
+- Aufgaben KI-UHR-01 und KI-UHR-02
+
+### Vorgemerkt
+
+- Auswahl gespeicherter Messreihen als Datenbasis der LehrerInnenauswertung
+- optionales fortgeschrittenes Kinetiksystem mit tatsächlich linearer 1/A-Auftragung
+
 ## [0.8.0] – 2026-07-31
 
 ### Hinzugefügt
