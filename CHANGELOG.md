@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.7.2] – 2026-07-31
+
+### Hinzugefügt
+
+- Auswahl zwischen drei Kontrolldiagrammen im LehrerInnen-Kinetikbereich:
+  - `A` gegen `t`
+  - `ln(A − A∞)` gegen `t`
+  - `1/(A − A∞)` gegen `t`
+- lineare Anpassung, Regressionsgleichung und `R²` für die jeweils gewählte Auftragung
+- Ableitung von `k_obs` aus der logarithmischen Auftragung
+- Speicherung der zuletzt gewählten LehrerInnen-Auftragung innerhalb der Sitzung
+
+### Geändert
+
+- Die lange Messdatentabelle der Kristallviolett-Kinetik ist nun einklappbar.
+- Die Überschrift der Tabelle zeigt laufend die Zahl der bereits erfassten Messwerte.
+- Die Tabelle bleibt während der Messung standardmäßig geschlossen, sodass das Diagramm im Mittelpunkt bleibt.
+
+### Unverändert
+
+- SchülerInnenmodus, Rohdaten und CSV-Export
+- kinetisches Reaktionsmodell und Messstreuung
+- Aufgaben KI-CV-01 und KI-CV-02
+- statische Spektren, Eichkurven, Fehlermodus und Gleichgewichtsmodul
+
 ## [0.7.1] – 2026-07-31
 
 ### Hinzugefügt
