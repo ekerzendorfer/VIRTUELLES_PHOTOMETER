@@ -1,33 +1,44 @@
 # SpektralLab – Virtuelles Photometer
 
-Browserbasierte Single-HTML-App für Spektren, Eichkurven, Gleichgewichte und Reaktionskinetik im Chemieunterricht.
+Browserbasierte Single-HTML-App für Spektren, Eichkurven, chemische Gleichgewichte und Reaktionskinetik im Chemieunterricht.
 
-**Version:** v0.9.0
+**Version:** v0.9.1  
+**Status:** technischer und ergonomischer Feinschliff vor der intensiven Abnahmephase
 
-## Neu
+## Funktionsumfang
 
-Der Kinetikbereich enthält nun drei getrennte Versuche:
-
-- Kristallviolett + Hydroxid
-- Brillantblau FCF + Hypochlorit
+- Absorptionsspektren von sechs farbigen Lösungen
+- schematisches Photometer mit Lichtfarbe und Abschwächung
+- Eichkurven, unbekannte Proben und LehrerInnen-Kontrollauswertung
+- Messstreuung sowie Lern- und Diagnosemodus für Laborfehler
+- JSON-basierte Aufgaben mit externer Protokollführung
+- pH-abhängige Spektren von Bromthymolblau
+- Kristallviolett-Kinetik
+- Brillantblau-Hypochlorit-Kinetik
 - Iod-/Vitamin-C-Uhrreaktion
 
-Alle Module erzeugen Rohdaten für eine externe Auswertung und erlauben Vergleichsläufe. Die beiden kontinuierlichen Entfärbungsreaktionen stellen im LehrerInnenmodus Kontrollauftragungen bereit; die Uhrreaktion zeigt Modell- und Schwellenzeit sowie 1/t.
+## Neu in v0.9.1
+
+- gespeicherte Läufe aller drei Kinetikversuche können im LehrerInnenmodus nachträglich als Datenbasis ausgewählt werden
+- Rückkehr zur aktuellen Messung über eine eigene Schaltfläche
+- zwei Geschwindigkeiten für den sichtbaren Spektralscan:
+  - Normal: etwa 5 Sekunden
+  - Beobachtungsmodus: etwa 8 Sekunden
+- vereinheitlichte Exportdateinamen mit Präfix `PHOT`, Versuchstyp und Zeitstempel
+- CSV-Exporte enthalten einen einheitlichen Metadatenblock mit App-Version und Exportzeit
+- Verbesserungen für kleine Bildschirme, hohen Kontrast und reduzierte Bewegung
+- Sprunglink zur Hauptnavigation für Tastaturnutzung
 
 ## Start
 
-`index.html` direkt öffnen oder über GitHub Pages veröffentlichen.
+`index.html` direkt im Browser öffnen oder über GitHub Pages veröffentlichen.
 
+## Daten und Auswertung
 
-## Neu in v0.9.0
+Die SchülerInnenfassung der aktuellen Entwicklungsdatei erzeugt Rohdaten, ersetzt aber kein externes Protokoll. Kontrollwerte und Linearisierungen sind ausschließlich im umschaltbaren LehrerInnenmodus sichtbar. Eine getrennte SchülerInnen- und LehrerInnenfassung ist erst bei nachgewiesenem Bedarf vorgesehen.
 
-- dritter Kinetikversuch: Iod-/Vitamin-C-Uhrreaktion
-- Induktionsphase und rascher Anstieg der Iod-Stärke-Absorbanz bei 600 nm
-- variable Konzentrationen von Wasserstoffperoxid, Iodid und Vitamin C
-- einheitlicher Absorbanz-Schwellenwert zur Bestimmung der Umschlagszeit
-- Speicherung und Überlagerung von bis zu drei Uhrreaktionsläufen
-- CSV-Rohdatenexport
-- LehrerInnenkontrolle mit Modellzeit, gemessener Schwellenzeit und 1/t
-- zwei neue Aufgaben zur Uhrreaktion
+## Dokumentation
 
-Die Auswahl bereits gespeicherter Messreihen als Datenbasis der LehrerInnenauswertung ist für den finalen Feinschliff vorgemerkt.
+- `docs/physikalische_chemie/photometrie-kinetik.md`
+- `docs/physikalische_chemie/DATENQUELLEN.md`
+- `docs/physikalische_chemie/abschluss-feinschliff.md`
