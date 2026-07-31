@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.7.1] – 2026-07-31
+
+### Hinzugefügt
+
+- Fast Green FCF als sechste Lösung in Spektren- und Eichkurvenmodus
+- didaktisches Zwei-Banden-Modell mit sichtbaren Banden um etwa 423 und 622 nm
+- grüne Lösungsdarstellung und eigene Konzentrationsreihe
+- hervorgehobener Messpunkt der unbekannten Probe im LehrerInnen-Eichdiagramm
+- gestrichelte Hilfslinien und Beschriftung der berechneten Konzentration
+
+### Geändert
+
+- Auswahltexte in Dropdowns und Eingabefeldern verwenden normale Schriftstärke
+- Schaltflächen und Navigationsfelder sind typografisch etwas zurückhaltender
+- Überschriften und Feldbeschriftungen bleiben deutlich hervorgehoben
+
+### Unverändert
+
+- SchülerInnenmodus zeigt im Eichdiagramm weiterhin keine unbekannte Konzentration
+- Regression, Rohdaten, Fehlerkultur und dynamische Messungen arbeiten unverändert
+
 ## [0.7.0] – 2026-07-30
 
 ### Hinzugefügt

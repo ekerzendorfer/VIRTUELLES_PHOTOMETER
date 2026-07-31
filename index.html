@@ -7,16 +7,16 @@
 <title>SpektralLab – Virtuelles Photometer</title>
 <style>
 :root{--bg:#f3f6fa;--surface:#fff;--soft:#eaf0f6;--text:#172033;--muted:#5e6b79;--accent:#345a7d;--accent2:#203f5b;--border:#cbd6e2;--ok:#2f7452;--warn:#8a5d14;--danger:#9d3037;--shadow:0 12px 28px rgba(23,32,51,.08);--radius:16px}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at top right,rgba(52,90,125,.12),transparent 32rem),var(--bg);color:var(--text);line-height:1.5}button,input,select{font:inherit}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(52,90,125,.3);outline-offset:2px}.shell{width:min(1280px,calc(100% - 28px));margin:20px auto 42px}.card{background:rgba(255,255,255,.95);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}header{display:flex;justify-content:space-between;gap:22px;padding:26px}.eyebrow{margin:0 0 4px;color:var(--accent);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}h1{margin:0;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.08}.subtitle{margin:10px 0 0;color:var(--muted);max-width:830px}.version{text-align:right;color:var(--muted);white-space:nowrap}.badge{display:inline-block;background:var(--accent2);color:#fff;padding:6px 10px;border-radius:999px;font-weight:800;margin-bottom:6px}.bar,.status{margin-top:14px;padding:12px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.9);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.seg{display:flex;background:var(--soft);padding:4px;border-radius:12px}.seg button{border:0;background:transparent;color:var(--muted);font-weight:750;padding:8px 14px;border-radius:9px;cursor:pointer}.seg button[aria-pressed="true"]{background:#fff;color:var(--accent2);box-shadow:0 2px 8px rgba(23,32,51,.1)}nav{margin-top:14px;padding:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.navbtn{border:1px solid transparent;border-radius:11px;background:var(--soft);min-height:50px;font-weight:800;color:var(--muted);cursor:pointer}.navbtn.active{background:var(--accent);color:#fff}.navbtn:disabled{opacity:.55;cursor:not-allowed}.view[hidden]{display:none}.workspace{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,2.1fr);gap:16px;margin-top:16px}.panelhead{padding:18px 20px 12px;border-bottom:1px solid var(--border)}.panelhead h2,.panelhead h3{margin:0}.panelbody{padding:20px}.formgrid{display:grid;gap:14px}label{display:grid;gap:6px;font-weight:750}.note{font-size:.84rem;color:var(--muted);font-weight:450}input,select{width:100%;padding:10px 11px;border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--text)}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}.primary,.secondary,.measurebtn{padding:10px 15px;border-radius:10px;font-weight:800;cursor:pointer}.primary{border:1px solid var(--accent);background:var(--accent);color:#fff}.primary:hover{background:var(--accent2)}.primary:disabled,.secondary:disabled,.measurebtn:disabled{opacity:.52;cursor:not-allowed}.secondary,.measurebtn{border:1px solid var(--border);background:#fff;color:var(--accent2)}.measurebtn{padding:7px 10px;font-size:.88rem}.substance-card{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff}.swatch{width:54px;height:74px;border-radius:8px 8px 14px 14px;border:1px solid rgba(23,32,51,.22);position:relative;overflow:hidden;background:var(--solution-color)}.swatch:before{content:"";position:absolute;left:7px;right:7px;top:5px;height:8px;border-radius:50%;background:rgba(255,255,255,.45)}.substance-card strong{display:block}.chemline{font-size:.9rem;color:var(--muted)}.chartwrap{min-height:410px;padding:14px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(#fff,#fbfcfe)}canvas{display:block;width:100%;height:380px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.metric{padding:12px;border-radius:12px;background:var(--soft)}.mlabel{font-size:.82rem;color:var(--muted)}.mvalue{font-size:1.1rem;font-weight:850;margin-top:3px}.info,.warning,.error,.success{margin-top:14px;padding:12px 14px;border-radius:11px}.info{background:#dce9f4;color:var(--accent2)}.warning{background:#fff2d8;color:var(--warn)}.success{background:#e3f2e9;color:var(--ok)}.error{display:none;background:#fde7e8;color:var(--danger)}details{margin-top:14px;border:1px solid var(--border);border-radius:11px;background:#fff}summary{cursor:pointer;padding:12px 14px;font-weight:800}details>div{padding:0 14px 14px;color:var(--muted)}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--ok);margin-right:7px}.footer{text-align:center;color:var(--muted);font-size:.86rem;margin-top:18px}.legend{display:grid;gap:8px;margin-top:14px}.legend:empty{display:none}.legend-item{display:grid;grid-template-columns:22px 1fr auto;gap:9px;align-items:center;padding:9px 10px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:.86rem}.legend-line{height:4px;border-radius:4px}.legend-meta{color:var(--muted);white-space:nowrap}.action-title{margin:18px 0 6px;font-size:.9rem}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.model-list{margin:8px 0 0;padding-left:20px}.model-list li{margin:4px 0}.standard-list{display:grid;gap:8px;margin-top:8px}.standard-row{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:end;padding:9px;border:1px solid var(--border);border-radius:10px;background:#fff}.standard-row .number{font-weight:850;color:var(--accent2);align-self:center}.standard-row label{font-size:.86rem}.instrument{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;padding:16px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(145deg,#f9fbfd,#eaf0f6)}.display{min-height:116px;border-radius:12px;background:#172033;color:#d7f5dc;padding:16px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;display:flex;flex-direction:column;justify-content:center}.display-label{font-size:.78rem;opacity:.76}.display-value{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.05}.display-meta{font-size:.82rem;opacity:.8;margin-top:6px}.session-box{display:grid;align-content:center;gap:8px}.session-code{font-weight:850;font-size:1.05rem}.workflow{display:grid;gap:10px;margin-top:16px}.workflow-step{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:11px;background:#fff}.stepno{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--soft);font-weight:850;color:var(--accent2)}.steptext strong{display:block}.steptext span{font-size:.83rem;color:var(--muted)}.table-wrap{overflow:auto;margin-top:14px;border:1px solid var(--border);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th,td{padding:10px 11px;border-bottom:1px solid var(--border);text-align:left;font-size:.9rem}th{background:var(--soft);color:var(--accent2);position:sticky;top:0}tbody tr:last-child td{border-bottom:0}.empty-row td{text-align:center;color:var(--muted);padding:28px}.teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.teacher-card{padding:11px;border:1px solid var(--border);border-radius:11px;background:#fff}.teacher-card span{display:block;color:var(--muted);font-size:.8rem}.teacher-card strong{font-size:1.03rem}.cal-chart{margin-top:14px;padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff}.cal-chart canvas{height:300px}.unknown-box{padding:12px;border:1px solid var(--border);border-radius:11px;background:#fff}.unknown-box strong{display:block}.status-chip{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--soft);font-size:.82rem;font-weight:750}.status-chip.ready{background:#e3f2e9;color:var(--ok)}@media(max-width:940px){header{display:block}.version{text-align:left;margin-top:16px}.workspace{grid-template-columns:1fr}nav{grid-template-columns:repeat(2,1fr)}.teacher-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.shell{width:calc(100% - 16px);margin-top:8px}header,.panelbody{padding:16px}.metrics{grid-template-columns:repeat(2,1fr)}.mini-grid,.instrument{grid-template-columns:1fr}.legend-item{grid-template-columns:22px 1fr}.legend-meta{grid-column:2;white-space:normal}.workflow-step{grid-template-columns:40px 1fr}.workflow-step button{grid-column:2}.teacher-grid{grid-template-columns:1fr}}@media(max-width:420px){.metrics{grid-template-columns:1fr}.standard-row{grid-template-columns:30px 1fr}.standard-row button{grid-column:2}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at top right,rgba(52,90,125,.12),transparent 32rem),var(--bg);color:var(--text);line-height:1.5}button,input,select{font:inherit}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(52,90,125,.3);outline-offset:2px}.shell{width:min(1280px,calc(100% - 28px));margin:20px auto 42px}.card{background:rgba(255,255,255,.95);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}header{display:flex;justify-content:space-between;gap:22px;padding:26px}.eyebrow{margin:0 0 4px;color:var(--accent);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}h1{margin:0;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.08}.subtitle{margin:10px 0 0;color:var(--muted);max-width:830px}.version{text-align:right;color:var(--muted);white-space:nowrap}.badge{display:inline-block;background:var(--accent2);color:#fff;padding:6px 10px;border-radius:999px;font-weight:800;margin-bottom:6px}.bar,.status{margin-top:14px;padding:12px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.9);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.seg{display:flex;background:var(--soft);padding:4px;border-radius:12px}.seg button{border:0;background:transparent;color:var(--muted);font-weight:650;padding:8px 14px;border-radius:9px;cursor:pointer}.seg button[aria-pressed="true"]{background:#fff;color:var(--accent2);box-shadow:0 2px 8px rgba(23,32,51,.1)}nav{margin-top:14px;padding:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.navbtn{border:1px solid transparent;border-radius:11px;background:var(--soft);min-height:50px;font-weight:650;color:var(--muted);cursor:pointer}.navbtn.active{background:var(--accent);color:#fff}.navbtn:disabled{opacity:.55;cursor:not-allowed}.view[hidden]{display:none}.workspace{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,2.1fr);gap:16px;margin-top:16px}.panelhead{padding:18px 20px 12px;border-bottom:1px solid var(--border)}.panelhead h2,.panelhead h3{margin:0}.panelbody{padding:20px}.formgrid{display:grid;gap:14px}label{display:grid;gap:6px;font-weight:750}.note{font-size:.84rem;color:var(--muted);font-weight:450}input,select{width:100%;padding:10px 11px;font-weight:400;border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--text)}option{font-weight:400}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}.primary,.secondary,.measurebtn{padding:10px 15px;border-radius:10px;font-weight:650;cursor:pointer}.primary{border:1px solid var(--accent);background:var(--accent);color:#fff}.primary:hover{background:var(--accent2)}.primary:disabled,.secondary:disabled,.measurebtn:disabled{opacity:.52;cursor:not-allowed}.secondary,.measurebtn{border:1px solid var(--border);background:#fff;color:var(--accent2)}.measurebtn{padding:7px 10px;font-size:.88rem}.substance-card{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff}.swatch{width:54px;height:74px;border-radius:8px 8px 14px 14px;border:1px solid rgba(23,32,51,.22);position:relative;overflow:hidden;background:var(--solution-color)}.swatch:before{content:"";position:absolute;left:7px;right:7px;top:5px;height:8px;border-radius:50%;background:rgba(255,255,255,.45)}.substance-card strong{display:block}.chemline{font-size:.9rem;color:var(--muted)}.chartwrap{min-height:410px;padding:14px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(#fff,#fbfcfe)}canvas{display:block;width:100%;height:380px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.metric{padding:12px;border-radius:12px;background:var(--soft)}.mlabel{font-size:.82rem;color:var(--muted)}.mvalue{font-size:1.1rem;font-weight:850;margin-top:3px}.info,.warning,.error,.success{margin-top:14px;padding:12px 14px;border-radius:11px}.info{background:#dce9f4;color:var(--accent2)}.warning{background:#fff2d8;color:var(--warn)}.success{background:#e3f2e9;color:var(--ok)}.error{display:none;background:#fde7e8;color:var(--danger)}details{margin-top:14px;border:1px solid var(--border);border-radius:11px;background:#fff}summary{cursor:pointer;padding:12px 14px;font-weight:800}details>div{padding:0 14px 14px;color:var(--muted)}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--ok);margin-right:7px}.footer{text-align:center;color:var(--muted);font-size:.86rem;margin-top:18px}.legend{display:grid;gap:8px;margin-top:14px}.legend:empty{display:none}.legend-item{display:grid;grid-template-columns:22px 1fr auto;gap:9px;align-items:center;padding:9px 10px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:.86rem}.legend-line{height:4px;border-radius:4px}.legend-meta{color:var(--muted);white-space:nowrap}.action-title{margin:18px 0 6px;font-size:.9rem}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.model-list{margin:8px 0 0;padding-left:20px}.model-list li{margin:4px 0}.standard-list{display:grid;gap:8px;margin-top:8px}.standard-row{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:end;padding:9px;border:1px solid var(--border);border-radius:10px;background:#fff}.standard-row .number{font-weight:850;color:var(--accent2);align-self:center}.standard-row label{font-size:.86rem}.instrument{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;padding:16px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(145deg,#f9fbfd,#eaf0f6)}.display{min-height:116px;border-radius:12px;background:#172033;color:#d7f5dc;padding:16px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;display:flex;flex-direction:column;justify-content:center}.display-label{font-size:.78rem;opacity:.76}.display-value{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.05}.display-meta{font-size:.82rem;opacity:.8;margin-top:6px}.session-box{display:grid;align-content:center;gap:8px}.session-code{font-weight:850;font-size:1.05rem}.workflow{display:grid;gap:10px;margin-top:16px}.workflow-step{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:11px;background:#fff}.stepno{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--soft);font-weight:850;color:var(--accent2)}.steptext strong{display:block}.steptext span{font-size:.83rem;color:var(--muted)}.table-wrap{overflow:auto;margin-top:14px;border:1px solid var(--border);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th,td{padding:10px 11px;border-bottom:1px solid var(--border);text-align:left;font-size:.9rem}th{background:var(--soft);color:var(--accent2);position:sticky;top:0}tbody tr:last-child td{border-bottom:0}.empty-row td{text-align:center;color:var(--muted);padding:28px}.teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.teacher-card{padding:11px;border:1px solid var(--border);border-radius:11px;background:#fff}.teacher-card span{display:block;color:var(--muted);font-size:.8rem}.teacher-card strong{font-size:1.03rem}.cal-chart{margin-top:14px;padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff}.cal-chart canvas{height:300px}.unknown-box{padding:12px;border:1px solid var(--border);border-radius:11px;background:#fff}.unknown-box strong{display:block}.status-chip{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--soft);font-size:.82rem;font-weight:750}.status-chip.ready{background:#e3f2e9;color:var(--ok)}@media(max-width:940px){header{display:block}.version{text-align:left;margin-top:16px}.workspace{grid-template-columns:1fr}nav{grid-template-columns:repeat(2,1fr)}.teacher-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.shell{width:calc(100% - 16px);margin-top:8px}header,.panelbody{padding:16px}.metrics{grid-template-columns:repeat(2,1fr)}.mini-grid,.instrument{grid-template-columns:1fr}.legend-item{grid-template-columns:22px 1fr}.legend-meta{grid-column:2;white-space:normal}.workflow-step{grid-template-columns:40px 1fr}.workflow-step button{grid-column:2}.teacher-grid{grid-template-columns:1fr}}@media(max-width:420px){.metrics{grid-template-columns:1fr}.standard-row{grid-template-columns:30px 1fr}.standard-row button{grid-column:2}}
 .lab-settings{margin-top:16px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#f8fafc}.lab-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.lab-heading strong{font-size:.98rem}.lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.lab-status{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--soft);color:var(--accent2);font-size:.88rem}.lab-status.learning{background:#e3f2e9;color:var(--ok)}.lab-status.diagnosis{background:#fff2d8;color:var(--warn)}.lab-status.revealed{background:#f1e8f5;color:#6d3d7f}.lab-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.lab-teacher{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)}.lab-log{margin-top:10px;padding:10px;border-radius:10px;background:#fff;border:1px solid rgba(138,93,20,.25);font-size:.86rem}.lab-log ul{margin:6px 0 0;padding-left:20px}.lab-hint{font-size:.78rem;color:var(--muted)}.issue-cell{font-size:.82rem;color:var(--muted);max-width:240px}.issue-cell.revealed{color:#6d3d7f;font-weight:650}.status-chip.lab-normal{background:var(--soft);color:var(--accent2)}.status-chip.lab-learning{background:#e3f2e9;color:var(--ok)}.status-chip.lab-diagnosis{background:#fff2d8;color:var(--warn)}
 @media(max-width:650px){.lab-grid{grid-template-columns:1fr}}
 
 .photometer-details{margin-top:16px}.photometer-details>div{padding:0 14px 14px;color:var(--text)}.photometer-panel{padding:12px;border:1px solid var(--border);border-radius:13px;background:linear-gradient(145deg,#f9fbfd,#e8eef4)}.photometer-svg{display:block;width:100%;height:auto;max-height:270px}.photometer-status{margin-top:8px;min-height:1.5em;color:var(--muted);font-size:.88rem}.photometer .machine{fill:#d9e1e8;stroke:#607080;stroke-width:2}.photometer .machine-dark{fill:#8392a0;stroke:#52616d;stroke-width:2}.photometer .slot{fill:#263541;stroke:#17242d;stroke-width:2}.photometer .screen{fill:#172033;stroke:#52616d;stroke-width:3}.photometer .screen-text{fill:#d7f5dc;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.photometer .component-label{fill:#334252;font-size:15px;font-weight:700}.photometer .small-label{fill:#5e6b79;font-size:12px}.photometer .beam{stroke:var(--beam-color,#6c8aa5);stroke-width:12;stroke-linecap:round;opacity:0;transition:opacity .22s ease,stroke .18s linear}.photometer .outgoing-beam{opacity:0}.photometer .led-core{fill:var(--beam-color,#6c8aa5);opacity:.24;transition:opacity .22s ease,fill .18s linear}.photometer .led-halo{fill:var(--beam-color,#6c8aa5);opacity:0;transition:opacity .22s ease,fill .18s linear}.photometer .cuvette-group{transform:translateY(-64px);transform-box:fill-box;transform-origin:center;transition:transform .62s cubic-bezier(.2,.72,.28,1)}.photometer .cuvette-shell{fill:rgba(255,255,255,.42);stroke:#637686;stroke-width:3}.photometer .cuvette-highlight{fill:rgba(255,255,255,.46)}.photometer .cuvette-liquid{fill:var(--solution-color,#b9c5cf);fill-opacity:var(--solution-opacity,.7);transition:fill .25s ease,fill-opacity .25s ease}.photometer .sample-label{fill:#172033;font-size:12px;font-weight:800;text-anchor:middle}.photometer .detector-signal{fill:var(--beam-color,#6c8aa5);opacity:0}.photometer.inserted .cuvette-group,.photometer.measuring .cuvette-group,.photometer.result .cuvette-group,.photometer.scanning .cuvette-group{transform:translateY(0)}.photometer.measuring .incoming-beam,.photometer.scanning .incoming-beam,.photometer.result .incoming-beam{opacity:.92}.photometer.measuring .outgoing-beam,.photometer.scanning .outgoing-beam,.photometer.result .outgoing-beam{opacity:var(--out-opacity,.45)}.photometer.measuring .led-core,.photometer.scanning .led-core,.photometer.result .led-core{opacity:.9}.photometer.measuring .led-halo,.photometer.scanning .led-halo,.photometer.result .led-halo{opacity:.33}.photometer.measuring .beam,.photometer.scanning .beam{stroke-dasharray:15 9;animation:beamFlow .48s linear infinite}.photometer.measuring .detector-signal,.photometer.scanning .detector-signal{animation:detectorPulse .72s ease-in-out infinite}.photometer.result .detector-signal{opacity:.62}.photometer-measuring-lock{pointer-events:none;opacity:.72}@keyframes beamFlow{to{stroke-dashoffset:-24}}@keyframes detectorPulse{0%,100%{opacity:.15}50%{opacity:.82}}@media(max-width:650px){.photometer-svg{max-height:none}.photometer .component-label{font-size:13px}.photometer .small-label{font-size:11px}}@media(prefers-reduced-motion:reduce){.photometer .cuvette-group{transition:none}.photometer .beam,.photometer .detector-signal{animation:none!important}.photometer .beam,.photometer .led-core,.photometer .led-halo,.photometer .cuvette-liquid{transition:none}}
 
-.task-banner[hidden]{display:none!important}.task-banner{margin-top:16px;padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:none;background:#eef5fb}.task-banner>div{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px}.task-kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:850}.task-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.82rem;color:var(--muted)}.task-workspace{grid-template-columns:minmax(290px,.8fr) minmax(0,2.2fr)}.task-meta{display:flex;gap:8px;flex-wrap:wrap}.task-badges{display:flex;gap:8px;flex-wrap:wrap}.task-badge{display:inline-block;padding:5px 9px;border-radius:999px;background:var(--soft);font-size:.8rem;font-weight:800;color:var(--accent2)}.task-badge.level-guided{background:#e3f2e9;color:var(--ok)}.task-badge.level-semi{background:#fff2d8;color:var(--warn)}.task-badge.level-open{background:#f1e8f5;color:#6d3d7f}.wide-button{width:100%;margin-top:9px}.task-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.task-section{margin-top:20px}.task-section h3{margin:0 0 7px}.task-section p{margin:0}.task-list{margin:7px 0 0;padding-left:22px}.task-list li{margin:7px 0}.task-list.numbered{padding-left:24px}.protocol-callout{margin-top:20px;padding:14px;border-left:5px solid var(--accent);border-radius:10px;background:#e8f1f8}.protocol-callout p{margin:5px 0 0}.checklist{display:grid;gap:8px;margin-top:10px}.check-row{display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:start;padding:10px;border:1px solid var(--border);border-radius:10px;background:#fff}.check-row input{width:auto;margin-top:4px}.check-row label{display:block;font-weight:650;cursor:pointer}.check-row small{display:block;color:var(--muted);font-weight:400;margin-top:2px}@media(max-width:650px){.task-banner{align-items:flex-start}.task-banner>div{grid-template-columns:1fr}.task-workspace{grid-template-columns:1fr}}
+.task-banner[hidden]{display:none!important}.task-banner{margin-top:16px;padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:none;background:#eef5fb}.task-banner>div{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px}.task-kicker{font-size:.75rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:850}.task-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.82rem;color:var(--muted)}.task-workspace{grid-template-columns:minmax(290px,.8fr) minmax(0,2.2fr)}.task-meta{display:flex;gap:8px;flex-wrap:wrap}.task-badges{display:flex;gap:8px;flex-wrap:wrap}.task-badge{display:inline-block;padding:5px 9px;border-radius:999px;background:var(--soft);font-size:.8rem;font-weight:800;color:var(--accent2)}.task-badge.level-guided{background:#e3f2e9;color:var(--ok)}.task-badge.level-semi{background:#fff2d8;color:var(--warn)}.task-badge.level-open{background:#f1e8f5;color:#6d3d7f}.wide-button{width:100%;margin-top:9px}.task-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.task-section{margin-top:20px}.task-section h3{margin:0 0 7px}.task-section p{margin:0}.task-list{margin:7px 0 0;padding-left:22px}.task-list li{margin:7px 0}.task-list.numbered{padding-left:24px}.protocol-callout{margin-top:20px;padding:14px;border-left:5px solid var(--accent);border-radius:10px;background:#e8f1f8}.protocol-callout p{margin:5px 0 0}.checklist{display:grid;gap:8px;margin-top:10px}.check-row{display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:start;padding:10px;border:1px solid var(--border);border-radius:10px;background:#fff}.check-row input{width:auto;margin-top:4px}.check-row label{display:block;font-weight:500;cursor:pointer}.check-row small{display:block;color:var(--muted);font-weight:400;margin-top:2px}@media(max-width:650px){.task-banner{align-items:flex-start}.task-banner>div{grid-template-columns:1fr}.task-workspace{grid-template-columns:1fr}}
 
 .dynamic-workspace{grid-template-columns:minmax(310px,.92fr) minmax(0,2.08fr)}
-.ph-shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ph-button{border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--accent2);padding:9px;font-weight:850;cursor:pointer}.ph-button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ph-shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ph-button{border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--accent2);padding:9px;font-weight:650;cursor:pointer}.ph-button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .ph-control{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center}.ph-control input[type="range"]{padding:0;border:0;background:transparent;accent-color:var(--accent)}
 .indicator-card{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:center;padding:13px;border:1px solid var(--border);border-radius:12px;background:#fff}.indicator-vial{height:92px;border:2px solid rgba(23,32,51,.25);border-radius:8px 8px 18px 18px;background:var(--indicator-color,#73a46f);position:relative;overflow:hidden;transition:background .25s ease}.indicator-vial:before{content:"";position:absolute;left:8px;right:8px;top:7px;height:10px;border-radius:50%;background:rgba(255,255,255,.45)}.indicator-vial:after{content:"BTB";position:absolute;inset:auto 0 22px;text-align:center;font-weight:900;color:rgba(23,32,51,.76);font-size:.82rem}
 .fraction-bars{display:grid;gap:9px;margin-top:14px}.fraction-row{display:grid;grid-template-columns:100px 1fr 58px;gap:10px;align-items:center;font-size:.88rem}.fraction-track{height:12px;border-radius:999px;background:var(--soft);overflow:hidden}.fraction-fill{height:100%;border-radius:inherit;transition:width .25s ease}.fraction-acid{background:#d5a51e}.fraction-base{background:#2e66ae}.fraction-value{text-align:right;font-weight:850}
@@ -24,7 +24,7 @@
 @media(max-width:650px){.ph-control{grid-template-columns:1fr}.dynamic-legend-item{grid-template-columns:22px 1fr auto}.dynamic-legend-item .dynamic-meta{grid-column:2}.fraction-row{grid-template-columns:84px 1fr 52px}}
 
 
-.dynamic-subnav{margin-top:14px;padding:9px;display:flex;gap:8px;flex-wrap:wrap}.dynamic-subnav button{flex:1;min-width:190px;border:1px solid var(--border);border-radius:10px;background:var(--soft);color:var(--muted);padding:10px 14px;font-weight:800;cursor:pointer}.dynamic-subnav button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dynamic-subnav{margin-top:14px;padding:9px;display:flex;gap:8px;flex-wrap:wrap}.dynamic-subnav button{flex:1;min-width:190px;border:1px solid var(--border);border-radius:10px;background:var(--soft);color:var(--muted);padding:10px 14px;font-weight:650;cursor:pointer}.dynamic-subnav button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .kinetic-workspace{grid-template-columns:minmax(315px,.92fr) minmax(0,2.08fr)}.kinetic-card{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff}.kinetic-vial{width:54px;height:76px;border-radius:8px 8px 14px 14px;border:1px solid rgba(23,32,51,.24);position:relative;overflow:hidden;background:linear-gradient(to top,rgba(112,36,139,.86) 0 72%,rgba(255,255,255,.05) 72%)}.kinetic-vial:before{content:"";position:absolute;left:7px;right:7px;top:5px;height:8px;border-radius:50%;background:rgba(255,255,255,.45)}.kinetic-vial.faded{background:linear-gradient(to top,rgba(230,221,235,.55) 0 72%,rgba(255,255,255,.05) 72%)}
 .kinetic-chart{min-height:430px}.kinetic-chart canvas{height:400px}.kinetic-legend{display:grid;gap:7px;margin-top:12px}.kinetic-legend-item{display:grid;grid-template-columns:24px 1fr auto auto;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:.86rem}.kinetic-legend-line{height:4px;border-radius:4px}.kinetic-remove{border:0;background:transparent;color:var(--danger);cursor:pointer;font-weight:900}.kinetic-status{min-height:1.5em;margin-top:9px;color:var(--muted);font-size:.88rem}.kinetic-table table{min-width:430px}.kinetic-reaction{margin-top:14px;padding:13px;border:1px solid var(--border);border-radius:12px;background:#f8fafc;text-align:center}.kinetic-reaction .equation{margin:0}.kinetic-progress{height:8px;border-radius:999px;background:var(--soft);overflow:hidden;margin-top:10px}.kinetic-progress>div{height:100%;width:0;background:var(--accent);transition:width .12s linear}.kinetic-controls-note{font-size:.82rem;color:var(--muted)}
 @media(max-width:650px){.kinetic-legend-item{grid-template-columns:22px 1fr auto}.kinetic-legend-item .dynamic-meta{grid-column:2}}
@@ -33,7 +33,7 @@
 </head>
 <body>
 <main class="shell">
-<header class="card"><div><p class="eyebrow">Chemie mit KI · Virtuelles Labor</p><h1>SpektralLab</h1><p class="subtitle">Version 0.7.0 ergänzt die dynamischen Messungen um die photometrische Reaktionskinetik. Die Entfärbung von Kristallviolett wird als Absorbanz-Zeit-Messung unter Hydroxidüberschuss verfolgt.</p></div><div class="version"><span class="badge">v0.7.0</span><br>Reaktionskinetik · Kristallviolett · Rohdaten</div></header>
+<header class="card"><div><p class="eyebrow">Chemie mit KI · Virtuelles Labor</p><h1>SpektralLab</h1><p class="subtitle">Version 0.7.1 bündelt drei gezielte Verbesserungen: Fast Green FCF ergänzt die Stoffliste, Bedienelemente wirken typografisch ruhiger und die unbekannte Probe wird im LehrerInnen-Eichdiagramm hervorgehoben.</p></div><div class="version"><span class="badge">v0.7.1</span><br>Fast Green FCF · Eichdiagramm · Typografie</div></header>
 <section class="bar" aria-label="Betriebsmodus"><strong>Modus</strong><div class="seg"><button id="studentBtn" type="button" aria-pressed="true">SchülerInnen</button><button id="teacherBtn" type="button" aria-pressed="false">LehrerInnen</button></div><span id="modeHint">Kontrollwerte und Regression bleiben ausgeblendet.</span></section>
 <nav class="card" aria-label="Hauptbereiche"><button id="spectrumNav" class="navbtn active" type="button">Spektrum</button><button id="calibrationNav" class="navbtn" type="button">Eichkurve</button><button id="dynamicNav" class="navbtn" type="button">Dynamische Messung</button><button id="tasksNav" class="navbtn" type="button">Aufgaben</button></nav>
 
@@ -163,14 +163,251 @@
 </main>
 <script id="substanceData" type="application/json">
 {
-  "schemaVersion":"0.3",
-  "modelNotice":"Didaktisch parametrisierte Spektralmodelle; keine digitalisierten Originalspektren.",
-  "substances":[
-    {"id":"permanganat","shortCode":"KM","name":"Kaliumpermanganat","formula":"MnO₄⁻ in Wasser","solutionColor":"violett","solutionHex":"#7d3caf","absorbedRange":"vor allem grünes bis gelbgrünes Licht","referenceLambdaMax":"etwa 525–526 nm","defaultConcentration":0.00020,"concentrationControl":{"min":0.00002,"max":0.00080,"step":0.00001},"defaultPathLength":1.0,"defaultRange":[380,750],"defaultMeasurementWavelength":525,"calibrationStandards":[0.00005,0.00010,0.00015,0.00020,0.00025],"peaks":[{"center":500,"epsilon":620,"width":15},{"center":525,"epsilon":2210,"width":18},{"center":546,"epsilon":860,"width":17}],"sourceSummary":"Das sichtbare Hauptmaximum des Permanganat-Ions liegt bei ungefähr 525–526 nm."},
-    {"id":"copper_aqua","shortCode":"CU","name":"Kupfer(II)-sulfat-Lösung","formula":"[Cu(H₂O)₆]²⁺, vereinfacht","solutionColor":"hellblau","solutionHex":"#66b9e8","absorbedRange":"rotes und nahinfrarotes Licht; das breite Band reicht in den sichtbaren Bereich","referenceLambdaMax":"breites Band um etwa 800 nm","defaultConcentration":0.080,"concentrationControl":{"min":0.005,"max":0.20,"step":0.005},"defaultPathLength":1.0,"defaultRange":[380,800],"defaultMeasurementWavelength":750,"calibrationStandards":[0.020,0.040,0.060,0.080,0.100],"peaks":[{"center":805,"epsilon":13.0,"width":118}],"sourceSummary":"Wässrige Kupfer(II)-Aquoionen besitzen eine breite, schwache Bande nahe 800 nm, die in den sichtbaren Bereich ausläuft."},
-    {"id":"tetraammine_copper","shortCode":"TA","name":"Tetraamminkupfer(II)-Komplex","formula":"[Cu(NH₃)₄]²⁺, in Ammoniaküberschuss","solutionColor":"tiefblau","solutionHex":"#174a9c","absorbedRange":"orangefarbenes bis rotes Licht","referenceLambdaMax":"etwa 620 nm","defaultConcentration":0.010,"concentrationControl":{"min":0.001,"max":0.030,"step":0.001},"defaultPathLength":1.0,"defaultRange":[380,750],"defaultMeasurementWavelength":620,"calibrationStandards":[0.003,0.006,0.009,0.012,0.015],"peaks":[{"center":620,"epsilon":72,"width":76}],"sourceSummary":"Für die tiefblaue Tetraamminkupfer(II)-Spezies wird ein sichtbares Maximum um 620 nm beschrieben."},
-    {"id":"iron_thiocyanate","shortCode":"FT","name":"Eisen(III)-thiocyanat-Komplex","formula":"FeSCN²⁺, vereinfachtes Modellsystem","solutionColor":"rot bis orange-rot","solutionHex":"#c94a2c","absorbedRange":"blaues bis blauviolettes Licht","referenceLambdaMax":"etwa 447 nm","defaultConcentration":0.00010,"concentrationControl":{"min":0.00001,"max":0.00030,"step":0.00001},"defaultPathLength":1.0,"defaultRange":[380,750],"defaultMeasurementWavelength":447,"calibrationStandards":[0.00002,0.00004,0.00006,0.00008,0.00010],"peaks":[{"center":447,"epsilon":5000,"width":37}],"sourceSummary":"Für schulische Eisen(III)-thiocyanat-Assays wird ein Maximum bei ungefähr 447 nm angegeben."},
-    {"id":"brilliant_blue","shortCode":"BB","name":"Brillantblau FCF (E133)","formula":"Lebensmittelfarbstoff in Wasser","solutionColor":"intensiv blau","solutionHex":"#0b65c2","absorbedRange":"orangefarbenes bis rotes Licht","referenceLambdaMax":"etwa 628–630 nm","defaultConcentration":0.000006,"concentrationControl":{"min":0.000001,"max":0.000012,"step":0.000001},"defaultPathLength":1.0,"defaultRange":[380,750],"defaultMeasurementWavelength":630,"calibrationStandards":[0.000001,0.000002,0.000003,0.000004,0.000005],"peaks":[{"center":405,"epsilon":14500,"width":28},{"center":629,"epsilon":100000,"width":34}],"sourceSummary":"Das sichtbare Hauptmaximum von Brillantblau FCF liegt in Wasser ungefähr bei 628–630 nm."}
+  "schemaVersion": "0.7.1",
+  "modelNotice": "Didaktisch parametrisierte Spektralmodelle; keine digitalisierten Originalspektren.",
+  "substances": [
+    {
+      "id": "permanganat",
+      "shortCode": "KM",
+      "name": "Kaliumpermanganat",
+      "formula": "MnO₄⁻ in Wasser",
+      "solutionColor": "violett",
+      "solutionHex": "#7d3caf",
+      "absorbedRange": "vor allem grünes bis gelbgrünes Licht",
+      "referenceLambdaMax": "etwa 525–526 nm",
+      "defaultConcentration": 0.0002,
+      "concentrationControl": {
+        "min": 2e-05,
+        "max": 0.0008,
+        "step": 1e-05
+      },
+      "defaultPathLength": 1.0,
+      "defaultRange": [
+        380,
+        750
+      ],
+      "defaultMeasurementWavelength": 525,
+      "calibrationStandards": [
+        5e-05,
+        0.0001,
+        0.00015,
+        0.0002,
+        0.00025
+      ],
+      "peaks": [
+        {
+          "center": 500,
+          "epsilon": 620,
+          "width": 15
+        },
+        {
+          "center": 525,
+          "epsilon": 2210,
+          "width": 18
+        },
+        {
+          "center": 546,
+          "epsilon": 860,
+          "width": 17
+        }
+      ],
+      "sourceSummary": "Das sichtbare Hauptmaximum des Permanganat-Ions liegt bei ungefähr 525–526 nm."
+    },
+    {
+      "id": "copper_aqua",
+      "shortCode": "CU",
+      "name": "Kupfer(II)-sulfat-Lösung",
+      "formula": "[Cu(H₂O)₆]²⁺, vereinfacht",
+      "solutionColor": "hellblau",
+      "solutionHex": "#66b9e8",
+      "absorbedRange": "rotes und nahinfrarotes Licht; das breite Band reicht in den sichtbaren Bereich",
+      "referenceLambdaMax": "breites Band um etwa 800 nm",
+      "defaultConcentration": 0.08,
+      "concentrationControl": {
+        "min": 0.005,
+        "max": 0.2,
+        "step": 0.005
+      },
+      "defaultPathLength": 1.0,
+      "defaultRange": [
+        380,
+        800
+      ],
+      "defaultMeasurementWavelength": 750,
+      "calibrationStandards": [
+        0.02,
+        0.04,
+        0.06,
+        0.08,
+        0.1
+      ],
+      "peaks": [
+        {
+          "center": 805,
+          "epsilon": 13.0,
+          "width": 118
+        }
+      ],
+      "sourceSummary": "Wässrige Kupfer(II)-Aquoionen besitzen eine breite, schwache Bande nahe 800 nm, die in den sichtbaren Bereich ausläuft."
+    },
+    {
+      "id": "tetraammine_copper",
+      "shortCode": "TA",
+      "name": "Tetraamminkupfer(II)-Komplex",
+      "formula": "[Cu(NH₃)₄]²⁺, in Ammoniaküberschuss",
+      "solutionColor": "tiefblau",
+      "solutionHex": "#174a9c",
+      "absorbedRange": "orangefarbenes bis rotes Licht",
+      "referenceLambdaMax": "etwa 620 nm",
+      "defaultConcentration": 0.01,
+      "concentrationControl": {
+        "min": 0.001,
+        "max": 0.03,
+        "step": 0.001
+      },
+      "defaultPathLength": 1.0,
+      "defaultRange": [
+        380,
+        750
+      ],
+      "defaultMeasurementWavelength": 620,
+      "calibrationStandards": [
+        0.003,
+        0.006,
+        0.009,
+        0.012,
+        0.015
+      ],
+      "peaks": [
+        {
+          "center": 620,
+          "epsilon": 72,
+          "width": 76
+        }
+      ],
+      "sourceSummary": "Für die tiefblaue Tetraamminkupfer(II)-Spezies wird ein sichtbares Maximum um 620 nm beschrieben."
+    },
+    {
+      "id": "iron_thiocyanate",
+      "shortCode": "FT",
+      "name": "Eisen(III)-thiocyanat-Komplex",
+      "formula": "FeSCN²⁺, vereinfachtes Modellsystem",
+      "solutionColor": "rot bis orange-rot",
+      "solutionHex": "#c94a2c",
+      "absorbedRange": "blaues bis blauviolettes Licht",
+      "referenceLambdaMax": "etwa 447 nm",
+      "defaultConcentration": 0.0001,
+      "concentrationControl": {
+        "min": 1e-05,
+        "max": 0.0003,
+        "step": 1e-05
+      },
+      "defaultPathLength": 1.0,
+      "defaultRange": [
+        380,
+        750
+      ],
+      "defaultMeasurementWavelength": 447,
+      "calibrationStandards": [
+        2e-05,
+        4e-05,
+        6e-05,
+        8e-05,
+        0.0001
+      ],
+      "peaks": [
+        {
+          "center": 447,
+          "epsilon": 5000,
+          "width": 37
+        }
+      ],
+      "sourceSummary": "Für schulische Eisen(III)-thiocyanat-Assays wird ein Maximum bei ungefähr 447 nm angegeben."
+    },
+    {
+      "id": "brilliant_blue",
+      "shortCode": "BB",
+      "name": "Brillantblau FCF (E133)",
+      "formula": "Lebensmittelfarbstoff in Wasser",
+      "solutionColor": "intensiv blau",
+      "solutionHex": "#0b65c2",
+      "absorbedRange": "orangefarbenes bis rotes Licht",
+      "referenceLambdaMax": "etwa 628–630 nm",
+      "defaultConcentration": 6e-06,
+      "concentrationControl": {
+        "min": 1e-06,
+        "max": 1.2e-05,
+        "step": 1e-06
+      },
+      "defaultPathLength": 1.0,
+      "defaultRange": [
+        380,
+        750
+      ],
+      "defaultMeasurementWavelength": 630,
+      "calibrationStandards": [
+        1e-06,
+        2e-06,
+        3e-06,
+        4e-06,
+        5e-06
+      ],
+      "peaks": [
+        {
+          "center": 405,
+          "epsilon": 14500,
+          "width": 28
+        },
+        {
+          "center": 629,
+          "epsilon": 100000,
+          "width": 34
+        }
+      ],
+      "sourceSummary": "Das sichtbare Hauptmaximum von Brillantblau FCF liegt in Wasser ungefähr bei 628–630 nm."
+    },
+    {
+      "id": "fast_green",
+      "shortCode": "FG",
+      "name": "Fast Green FCF (Food Green 3)",
+      "formula": "synthetischer Triphenylmethan-Farbstoff in Wasser",
+      "solutionColor": "intensiv grün",
+      "solutionHex": "#178b55",
+      "absorbedRange": "blauviolettes und orangefarbenes bis rotes Licht; grünes Licht wird vergleichsweise gut durchgelassen",
+      "referenceLambdaMax": "Hauptband etwa 620–622 nm, Nebenband etwa 420–425 nm",
+      "defaultConcentration": 5e-06,
+      "concentrationControl": {
+        "min": 1e-06,
+        "max": 1.2e-05,
+        "step": 1e-06
+      },
+      "defaultPathLength": 1.0,
+      "defaultRange": [
+        380,
+        750
+      ],
+      "defaultMeasurementWavelength": 622,
+      "calibrationStandards": [
+        1e-06,
+        2e-06,
+        3e-06,
+        4e-06,
+        5e-06
+      ],
+      "peaks": [
+        {
+          "center": 423,
+          "epsilon": 22000,
+          "width": 30
+        },
+        {
+          "center": 622,
+          "epsilon": 85000,
+          "width": 38
+        }
+      ],
+      "sourceSummary": "Für Fast Green FCF in wässriger Lösung werden sichtbare Absorptionsbanden um etwa 420–425 nm und 620–622 nm beschrieben; das langwellige Band ist das Hauptmaximum."
+    }
   ]
 }
 </script>
@@ -710,7 +947,7 @@
 </script>
 <script>
 "use strict";
-const APP_VERSION="0.7.0", STORAGE_KEY="virtuellesPhotometerState_v0_7", SCAN_DURATION_MS=5000, DYNAMIC_SCAN_DURATION_MS=3600, KINETIC_PLAYBACK_MS=9000, OVERLAY_COLORS=["#2d6f9f","#a55a2f","#6d4f91"], KINETIC_COLORS=["#6d3f86","#2d6f9f","#a55a2f"];
+const APP_VERSION="0.7.1", STORAGE_KEY="virtuellesPhotometerState_v0_7", SCAN_DURATION_MS=5000, DYNAMIC_SCAN_DURATION_MS=3600, KINETIC_PLAYBACK_MS=9000, OVERLAY_COLORS=["#2d6f9f","#a55a2f","#6d4f91"], KINETIC_COLORS=["#6d3f86","#2d6f9f","#a55a2f"];
 let mode="student",activeView="spectrum",data=[],modelNotice="",lastSpectrum=[],visiblePointCount=0,animationFrameId=null,scanRunId=0,scanFinished=false,savedSpectra=[];
 let cal={seed:0,noiseIndex:0,zeroed:false,measurements:[],unknownConcentration:0,unknownCode:"",sessionCode:"",standards:[],blankBias:0,zeroDrift:0,lastMeasurementIds:[]};
 let lab={mode:"normal",frequency:"medium",forced:"random"};
@@ -805,7 +1042,7 @@ function renderMeasureRows(){e.standardMeasureRows.innerHTML="";calStandardsFrom
 function renderTable(){e.measurementTable.innerHTML="";if(!cal.measurements.length){e.measurementTable.innerHTML='<tr class="empty-row"><td colspan="7">Noch keine Messwerte vorhanden.</td></tr>';return}cal.measurements.forEach(r=>{const tr=document.createElement("tr"),issue=visibleIssueText(r),revealed=mode==="teacher"||lab.mode==="learning"||r.revealed;tr.innerHTML=`<td>${r.label}</td><td>${r.concentration===null?"unbekannt":fmtC(r.concentration)}</td><td>${r.wavelength}</td><td>${fmt(r.path)}</td><td>${r.replicate}</td><td>${r.absorbance.toFixed(3).replace(".",",")}</td><td class="issue-cell ${revealed?"revealed":""}">${issue}</td>`;e.measurementTable.appendChild(tr)})}
 function regression(){const rows=cal.measurements.filter(x=>x.type==="standard");if(rows.length<2)return null;const n=rows.length,sx=rows.reduce((a,r)=>a+r.concentration,0),sy=rows.reduce((a,r)=>a+r.absorbance,0),sxx=rows.reduce((a,r)=>a+r.concentration*r.concentration,0),sxy=rows.reduce((a,r)=>a+r.concentration*r.absorbance,0),den=n*sxx-sx*sx;if(Math.abs(den)<1e-30)return null;const slope=(n*sxy-sx*sy)/den,intercept=(sy-slope*sx)/n,mean=sy/n,ssTot=rows.reduce((a,r)=>a+(r.absorbance-mean)**2,0),ssRes=rows.reduce((a,r)=>a+(r.absorbance-(intercept+slope*r.concentration))**2,0),r2=ssTot?1-ssRes/ssTot:1,rmse=Math.sqrt(ssRes/n);return{slope,intercept,r2,rmse,rows}}
 function teacherSummary(){const reg=regression(),unknown=cal.measurements.filter(x=>x.type==="unknown"),setup=(()=>{try{return validateCalSetup()}catch{return null}})();if(!setup){e.teacherStats.innerHTML="";return}const idealSlope=epsilonAt(setup.s,setup.w)*setup.d;let cards=[['Ideale Steigung',fmt(idealSlope,5)],['Messpunkte Standards',String(reg?reg.rows.length:0)],['Wahre c unbekannt',fmtC(cal.unknownConcentration)+' mol/L']];if(reg){cards=[['Regression',`A = ${fmt(reg.slope,5)}·c ${reg.intercept>=0?"+":"−"} ${fmt(Math.abs(reg.intercept),4)}`],['R²',reg.r2.toFixed(5).replace(".",",")],['Ideale Steigung',fmt(idealSlope,5)],['RMSE',reg.rmse.toFixed(4).replace(".",",")]];if(unknown.length){const mean=unknown.reduce((a,r)=>a+r.absorbance,0)/unknown.length,estimate=(mean-reg.intercept)/reg.slope,rel=(estimate-cal.unknownConcentration)/cal.unknownConcentration*100;cards.push(['c berechnet',fmtC(estimate)+' mol/L'],['Abweichung',fmt(rel,4)+' %'])}}e.teacherStats.innerHTML=cards.map(([l,v])=>`<div class="teacher-card"><span>${l}</span><strong>${v}</strong></div>`).join("");if(reg){const threshold=Math.max(.01,3*reg.rmse),bad=reg.rows.filter(r=>Math.abs(r.absorbance-(reg.intercept+reg.slope*r.concentration))>threshold);e.outlierInfo.textContent=bad.length?`Auffällige Messpunkte: ${bad.map(x=>x.label+" / Messung "+x.replicate).join(", ")}.`:"Keine auffälligen Standardmesswerte nach der einfachen 3-RMSE-Regel."}else e.outlierInfo.textContent="Für eine Regression sind mindestens zwei Standardmesswerte erforderlich.";drawCalibration(reg,setup);renderLabPanel()}
-function drawCalibration(reg,setup){sizeCanvas(e.calibrationCanvas,300);const ctx=e.calibrationCanvas.getContext("2d"),w=e.calibrationCanvas.getBoundingClientRect().width,h=300,m={left:62,right:18,top:20,bottom:48},pw=w-m.left-m.right,ph=h-m.top-m.bottom,rows=cal.measurements.filter(x=>x.type==="standard"),maxX=Math.max(...setup.standards)*1.08,maxY=Math.max(.2,...rows.map(x=>x.absorbance),idealY(maxX))*1.12,xs=x=>m.left+x/maxX*pw,ys=y=>m.top+ph-y/maxY*ph;function idealY(x){return epsilonAt(setup.s,setup.w)*setup.d*x}ctx.clearRect(0,0,w,h);ctx.strokeStyle="#d6dee8";ctx.fillStyle="#5e6b79";ctx.font="12px system-ui";for(let i=0;i<=5;i++){const y=maxY/5*i,py=ys(y);ctx.beginPath();ctx.moveTo(m.left,py);ctx.lineTo(w-m.right,py);ctx.stroke();ctx.textAlign="right";ctx.fillText(y.toFixed(2),m.left-8,py+4)}for(let i=0;i<=5;i++){const x=maxX/5*i,px=xs(x);ctx.beginPath();ctx.moveTo(px,m.top);ctx.lineTo(px,m.top+ph);ctx.stroke();ctx.textAlign="center";ctx.fillText(fmtC(x),px,h-23)}ctx.strokeStyle="#172033";ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(m.left,m.top);ctx.lineTo(m.left,m.top+ph);ctx.lineTo(w-m.right,m.top+ph);ctx.stroke();ctx.fillStyle="#172033";ctx.textAlign="center";ctx.fillText("Konzentration / mol·L⁻¹",m.left+pw/2,h-4);ctx.save();ctx.translate(15,m.top+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText("Absorbanz A",0,0);ctx.restore();ctx.strokeStyle="#8a5d14";ctx.setLineDash([6,5]);ctx.beginPath();ctx.moveTo(xs(0),ys(0));ctx.lineTo(xs(maxX),ys(idealY(maxX)));ctx.stroke();ctx.setLineDash([]);if(reg){ctx.strokeStyle="#345a7d";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(xs(0),ys(reg.intercept));ctx.lineTo(xs(maxX),ys(reg.intercept+reg.slope*maxX));ctx.stroke()}ctx.fillStyle="#172033";rows.forEach(r=>{ctx.beginPath();ctx.arc(xs(r.concentration),ys(r.absorbance),4.5,0,Math.PI*2);ctx.fill()})}
+function drawCalibration(reg,setup){sizeCanvas(e.calibrationCanvas,300);const ctx=e.calibrationCanvas.getContext("2d"),w=e.calibrationCanvas.getBoundingClientRect().width,h=300,m={left:62,right:24,top:24,bottom:48},pw=w-m.left-m.right,ph=h-m.top-m.bottom,rows=cal.measurements.filter(x=>x.type==="standard"),unknownRows=cal.measurements.filter(x=>x.type==="unknown"),unknownMean=unknownRows.length?unknownRows.reduce((sum,r)=>sum+r.absorbance,0)/unknownRows.length:null,unknownEstimate=reg&&unknownMean!==null&&Math.abs(reg.slope)>1e-30?(unknownMean-reg.intercept)/reg.slope:null,baseMaxX=Math.max(...setup.standards),maxX=Math.max(baseMaxX,Number.isFinite(unknownEstimate)?unknownEstimate:0)*1.10,maxY=Math.max(.2,...rows.map(x=>x.absorbance),unknownMean??0,idealY(maxX),reg?reg.intercept+reg.slope*maxX:0)*1.14,xs=x=>m.left+x/maxX*pw,ys=y=>m.top+ph-y/maxY*ph;function idealY(x){return epsilonAt(setup.s,setup.w)*setup.d*x}ctx.clearRect(0,0,w,h);ctx.strokeStyle="#d6dee8";ctx.fillStyle="#5e6b79";ctx.font="12px system-ui";for(let i=0;i<=5;i++){const y=maxY/5*i,py=ys(y);ctx.beginPath();ctx.moveTo(m.left,py);ctx.lineTo(w-m.right,py);ctx.stroke();ctx.textAlign="right";ctx.fillText(y.toFixed(2),m.left-8,py+4)}for(let i=0;i<=5;i++){const x=maxX/5*i,px=xs(x);ctx.beginPath();ctx.moveTo(px,m.top);ctx.lineTo(px,m.top+ph);ctx.stroke();ctx.textAlign="center";ctx.fillText(fmtC(x),px,h-23)}ctx.strokeStyle="#172033";ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(m.left,m.top);ctx.lineTo(m.left,m.top+ph);ctx.lineTo(w-m.right,m.top+ph);ctx.stroke();ctx.fillStyle="#172033";ctx.textAlign="center";ctx.fillText("Konzentration / mol·L⁻¹",m.left+pw/2,h-4);ctx.save();ctx.translate(15,m.top+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText("Absorbanz A",0,0);ctx.restore();ctx.strokeStyle="#8a5d14";ctx.setLineDash([6,5]);ctx.beginPath();ctx.moveTo(xs(0),ys(0));ctx.lineTo(xs(maxX),ys(idealY(maxX)));ctx.stroke();ctx.setLineDash([]);if(reg){ctx.strokeStyle="#345a7d";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(xs(0),ys(reg.intercept));ctx.lineTo(xs(maxX),ys(reg.intercept+reg.slope*maxX));ctx.stroke()}ctx.fillStyle="#172033";rows.forEach(r=>{ctx.beginPath();ctx.arc(xs(r.concentration),ys(r.absorbance),4.5,0,Math.PI*2);ctx.fill()});if(Number.isFinite(unknownEstimate)&&unknownMean!==null){const ux=xs(unknownEstimate),uy=ys(unknownMean),size=7;ctx.save();ctx.strokeStyle="#8b3f82";ctx.fillStyle="#f2d8ee";ctx.lineWidth=1.8;ctx.setLineDash([5,4]);ctx.beginPath();ctx.moveTo(m.left,uy);ctx.lineTo(ux,uy);ctx.lineTo(ux,m.top+ph);ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(ux,uy-size);ctx.lineTo(ux+size,uy);ctx.lineTo(ux,uy+size);ctx.lineTo(ux-size,uy);ctx.closePath();ctx.fill();ctx.stroke();ctx.fillStyle="#6d2f67";ctx.font="600 12px system-ui";ctx.textAlign=ux>w*.72?"right":"left";ctx.fillText(`${cal.unknownCode||"Unbekannt"} · c ≈ ${fmtC(unknownEstimate)}`,ux+(ux>w*.72?-10:10),Math.max(m.top+12,uy-10));ctx.restore()}}
 function renderCalibration(){e.sessionCode.textContent=cal.sessionCode||"–";e.unknownCode.textContent=cal.unknownCode||"–";e.zeroStatus.textContent=cal.zeroed?"Nullabgleich abgeschlossen":"nicht abgeglichen";e.zeroStatus.className="status-chip"+(cal.zeroed?" ready":"");e.measureUnknown.disabled=calibrationPhotometerBusy||!cal.zeroed;e.exportCsv.disabled=!cal.measurements.length;e.clearMeasurements.disabled=!cal.measurements.length;renderMeasureRows();renderTable();if(!cal.measurements.length){e.instrumentValue.textContent="A = –";e.instrumentMeta.textContent=cal.zeroed?"Messbereit":"Nullabgleich erforderlich"}else{const last=cal.measurements.at(-1);e.instrumentValue.textContent=`A = ${last.absorbance.toFixed(3).replace(".",",")}`;e.instrumentMeta.textContent=last.type==="blank"?"Blindprobe · Nullabgleich abgeschlossen":`${last.label} · ${last.wavelength} nm · ${fmt(last.path)} cm`}if(!calibrationPhotometerBusy)showLastCalibrationPhotometer();renderLabPanel();if(mode==="teacher")teacherSummary()}
 function exportCsv(){if(!cal.measurements.length)return;const s=selectedCal(),task=activeTask(),header=['Aufgaben_ID','Aufgabenkennung','Versuchskennung','Stoff','Probentyp','Probe','Konzentration_mol_L','Wellenlaenge_nm','Schichtdicke_cm','Messung','Absorbanz','Laborhinweis','Zeitstempel'],lines=[header.join(';')];cal.measurements.forEach(r=>lines.push([task?.shortCode||'',taskRunCode||'',cal.sessionCode,s.name,r.type,r.label,r.concentration===null?'unbekannt':csvNum(r.concentration),r.wavelength,csvNum(r.path),r.replicate,csvNum(r.absorbance),visibleIssueText(r),r.timestamp].map(x=>`"${String(x).replaceAll('"','""')}"`).join(';')));const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`${taskRunCode||cal.sessionCode}_rohdaten.csv`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);e.status.textContent="CSV-Rohdaten exportiert"}
 function clearMeasurements(){calibrationPhotometerRun++;calibrationPhotometerBusy=false;cal.zeroed=false;cal.measurements=[];cal.noiseIndex=0;cal.blankBias=0;cal.zeroDrift=0;cal.lastMeasurementIds=[];renderCalibration();resetCalibrationPhotometer();renderLabPanel();saveState();e.status.textContent="Messwerte gelöscht – neuer Nullabgleich erforderlich"}
