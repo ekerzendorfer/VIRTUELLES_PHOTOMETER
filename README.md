@@ -2,8 +2,8 @@
 
 Browserbasierte Single-HTML-App für Spektren, Eichkurven, chemische Gleichgewichte und Reaktionskinetik im Chemieunterricht.
 
-**Version:** v0.9.2  
-**Status:** technischer und ergonomischer Feinschliff vor der intensiven Abnahmephase
+**Version:** v0.9.3  
+**Status:** v0.9.2 fachlich unverändert, ergänzt um optionalen Analytik-Hub-Adapter
 
 ## Funktionsumfang
 
@@ -47,3 +47,25 @@ Die SchülerInnenfassung der aktuellen Entwicklungsdatei erzeugt Rohdaten, erset
 - `docs/physikalische_chemie/photometrie-kinetik.md`
 - `docs/physikalische_chemie/DATENQUELLEN.md`
 - `docs/physikalische_chemie/abschluss-feinschliff.md`
+
+
+## Analytik-Hub-Adapter (v0.9.3)
+
+SpektralLab bleibt vollständig als unabhängige Single-HTML-App nutzbar. Nur ein expliziter Start mit
+
+```text
+?bridge=1&run=RUN_...
+```
+
+aktiviert den zusätzlichen Hub-Modus.
+
+Im Hub-Modus:
+
+- wird die gemeinsame `CHEMIE_ANALYTIK_BRIDGE` aus `CHEMIE_ANALYTIK_HUB` dynamisch geladen,
+- wird der Analyse-Run aus `localStorage` gelesen,
+- kann der Hub einen kleinen, app-spezifischen `input`-Kontext übergeben,
+- bleibt die interne Stoffidentität einer unbekannten Probe im normalen UI verborgen,
+- werden Hub-Sitzungsdaten getrennt vom bisherigen SpektralLab-Single-State gespeichert,
+- kann nach einem abgeschlossenen Scan ein standardisiertes `RESULT` an den Hub zurückgegeben werden.
+
+Die erste reale Integration verwendet `VCOE01_SOLID_AQ` im **qualitativen Spektrenmodus**. Da die Fallkonzentration noch nicht festgelegt ist, wird intern lediglich die vorhandene didaktische Modellkonzentration zur Erzeugung der Spektrenform verwendet. Sie wird nicht als quantitative Fallinformation ausgegeben.
