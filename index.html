@@ -1297,6 +1297,7 @@ function applyBridgeInput(run){
     e.replicateCount.value=String(input.replicates??1);
     lab.mode=input.lab_mode||"normal";lab.frequency="low";lab.forced="random";
     e.labMode.value=lab.mode;e.errorFrequency.value=lab.frequency;e.forcedError.value=lab.forced;
+    e.labMode.disabled=true;e.errorFrequency.disabled=true;e.forcedError.disabled=true;
     buildStandardInputs(Array.isArray(input.standards_mol_l)&&input.standards_mol_l.length===5?input.standards_mol_l:s.calibrationStandards);
     updateCalCard();
     cal.standards=calStandardsFromInputs();
