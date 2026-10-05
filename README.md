@@ -2,8 +2,8 @@
 
 Browserbasierte Single-HTML-App für Spektren, Eichkurven, chemische Gleichgewichte und Reaktionskinetik im Chemieunterricht.
 
-**Version:** v0.9.3  
-**Status:** v0.9.2 fachlich unverändert, ergänzt um optionalen Analytik-Hub-Adapter
+**Version:** v0.9.4  
+**Status:** optionaler Analytik-Hub-Adapter für Spektrum und quantitative Eichkurve
 
 ## Funktionsumfang
 
@@ -69,3 +69,21 @@ Im Hub-Modus:
 - kann nach einem abgeschlossenen Scan ein standardisiertes `RESULT` an den Hub zurückgegeben werden.
 
 Die erste reale Integration verwendet `VCOE01_SOLID_AQ` im **qualitativen Spektrenmodus**. Da die Fallkonzentration noch nicht festgelegt ist, wird intern lediglich die vorhandene didaktische Modellkonzentration zur Erzeugung der Spektrenform verwendet. Sie wird nicht als quantitative Fallinformation ausgegeben.
+
+
+## Quantitativer Hub-Auftrag (v0.9.4)
+
+Der Hub kann nun zusätzlich `mode: "calibration"` übergeben. In diesem Modus:
+
+- wird die Eichkurvenansicht direkt geöffnet,
+- werden Stoffmodell, Messwellenlänge und fünf Standards aus dem Run-Kontext übernommen,
+- bleibt die wahre Konzentration der unbekannten Probe verborgen,
+- muss zuerst die Blindprobe gemessen werden,
+- müssen alle fünf Standards und die unbekannte Probe tatsächlich gemessen werden,
+- wird die Rückgabe erst danach freigeschaltet,
+- enthält das RESULT ausschließlich Blind-, Standard- und Unbekannt-Messwerte,
+- werden weder Regression noch unbekannte Konzentration automatisch zurückgegeben.
+
+Der Hub kann Auswertungshinweise im Run mitgeben; SpektralLab transportiert sie im RESULT zurück, ohne sie selbst zu lösen.
+
+Hub- und Single-Mode verwenden getrennte lokale Speicherzustände.
